@@ -1,4 +1,4 @@
-# 升级nodejs
+# n
 
 ## 安装n
 
@@ -69,38 +69,7 @@ source ~/.bash_profile
 
 
 
-# express
-
-express是nodejs的一个web框架
-
-## 1.安装模块
-
-```bash
-npm install express --save -g
-npm install express-generator --save -g
-```
-
-## 2.创建项目
-
-```bash
-express xxx
-```
-
-## 3.安装依赖
-
-```bash
-npm install
-```
-
-## 4.启动
-
-```bash
-npm start
-```
-
-
-
-# npm常用命令
+# npm
 
 | 命令                        | 描述                             |
 | --------------------------- | -------------------------------- |
@@ -135,3 +104,61 @@ npm start
 | npm config list(ls)         | npm配置信息                      |
 | npm config set prefix xxx   | 设置node_global                  |
 | npm config set cache xxx    | 设置node_cache                   |
+
+
+
+# nvm
+
+nvm的参数基本上都没有中划线，这一点需要额外注意。
+
+| 命令               | 描述                     |
+| ------------------ | ------------------------ |
+| nvm list           | 查看下载的node版本       |
+| nvm list available | 查看所有可下载的node版本 |
+| nvm install xxx    | 安装某个node版本         |
+| nvm uninstall xxx  | 卸载某个node版本         |
+| nvm use            | 使用某个node版本         |
+| nvm on             | 启用node.js版本管理      |
+| nvm off            | 禁用node.js版本管理      |
+| nvm v(version)     | 查看nvm的版本            |
+
+
+
+# express
+
+express是nodejs的一个web框架，express升级到4.0之后需要额外安装express-generator。
+
+## 1.安装模块
+
+```bash
+npm install express --save -g
+npm install express-generator --save -g
+```
+
+## 2.创建项目
+
+```bash
+express xxx
+```
+
+## 3.安装依赖
+
+```bash
+npm install
+```
+
+## 4.启动
+
+```bash
+npm start
+```
+
+
+
+**npm install参数**
+
+-g：全局安装
+
+-s(--save)：安装到当前项目的依赖中
+
+-d(-D)：安装到当前项目的dev依赖中，生产环境依赖不添加安装的模块或者插件
