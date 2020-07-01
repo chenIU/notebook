@@ -131,3 +131,7 @@ npm start
 | npm version                 | 查看模块的版本                   |
 | npm view                    | 查看模块的注册信息               |
 | npm adduser                 | 添加用户                         |
+| npm audit                   | node项目审计信息                 |
+| npm config list(ls)         | npm配置信息                      |
+| npm config set prefix xxx   | 设置node_global                  |
+| npm config set cache xxx    | 设置node_cache                   |
