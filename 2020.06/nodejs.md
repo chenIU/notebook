@@ -162,3 +162,5 @@ npm start
 -s(--save)：安装到当前项目的依赖中
 
 -d(-D)：安装到当前项目的dev依赖中，生产环境依赖不添加安装的模块或者插件
+
+npm install xxx = install i xxx
