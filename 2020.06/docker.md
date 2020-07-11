@@ -81,9 +81,11 @@ cat exported_container| docker import - container_name
 
 
 
-| 命令         | 解释               |
-| ------------ | ------------------ |
-| docker ps -l | 最后一次创建的容器 |
-|              |                    |
-|              |                    |
+| 命令                           | 解释                     |
+| ------------------------------ | ------------------------ |
+| docker ps -l                   | 最后一次创建的容器       |
+| docker exec -it xxx bash       | 进入某个容器             |
+| docker run -d -P image_name/id | 随机映射启动的端口       |
+| docker info                    | 查看docker所有的详细信息 |
+| docker version                 | 查看docker版本信息       |
 
