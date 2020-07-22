@@ -208,3 +208,30 @@ filter.init()-->filter.doFilter()之前的程序-->interceptor.preHandle()-->con
 
 
 int 类型的1/2是0而非0.5
+
+
+
+`Arrays.toList()：数组转集合`
+
+`list.toArray():集合转数组`
+
+
+
+### scope的分类
+
++ **compile**：默认值，它表示被依赖项目需要参与当前项目的编译和后续的测试以及运行周期，是一个比较强的依赖，打包的时候通常需要包含进去。
+
++ **test**：被依赖项目仅仅参与测试相关的工作，包括测试代码的编译和执行，不会被打包。 例如junit
+
++ **runtime**：被依赖项目无需参与项目的编译，但是后期的测试和运行周期需要其参与其中。与compile相比，跳过了编译阶段。 例如JDBC驱动
+
++ **provided**：打包的时候可以不用打包进去，别的设施会提供。事实上该依赖理论可以参与编译、测试、运行等周期。相当于compile，但是打包阶段做了exclude操作。
+
++ **system**：从参与度来说，和provided相同，不过被依赖项不会从maven仓库下载，而是从本地文件系统拿。需要添加systemPath属性来定义路径。
+
+  
+
+```java
+@AllArgsConstructor //lombok所有参数构造方法
+@NoArgsConstructor  //lombok无参构造方法
+```
