@@ -146,7 +146,9 @@ git push --set-upstream origin branch_name：推送本地分支到远程
 
 git fetch：拉取新建的分支
 
+git branch -d branch_name：删除本地分支
 
+git push origin :branch_name：删除远程分支
 
 ## 5、cherry-pick
 
@@ -157,8 +159,6 @@ git cherry-pick --continue：解决冲突之后执行此命令，继续之前的
 git cherry-pick --skip：跳过本地合并
 
 git cherry-pick --abort：放弃本次cherry-pick
-
-
 
 ## 6、回退提交
 
@@ -180,8 +180,9 @@ git push origin HEAD --force
 * git维护的三颗"树"，工作目录、暂存区(index)、HEAD
 * HEAD指向最后一次提交的结果
 * 解决完冲突之后要执行git add <file_name> 将它们标记为合并成功
-* git status无法识别新建文件夹时，可以在文件夹中添加文件再执行git status命令。
-* git仅跟踪文件的变动，不跟踪目录。
+* git status无法识别新建文件夹时，可以在文件夹中添加文件再执行git status命令
+* git仅跟踪文件的变动，不跟踪目录
+* 本地分支的指针HEAD可以小写
 
 
 
