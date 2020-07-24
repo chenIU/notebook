@@ -235,3 +235,68 @@ int 类型的1/2是0而非0.5
 @AllArgsConstructor //lombok所有参数构造方法
 @NoArgsConstructor  //lombok无参构造方法
 ```
+
+
+
+### Content-Type
+
++ application/json：消息主体是序列化之后的JSON字符串
++ application/x-www-form-urlencoded：数据被编码为键值对，这是标准的编码格式
++ multipart/form-data：需要再表单中进行文件上传时，需要使用该格式
++ text/plain：数据以纯文本形式(text/json/xml/html)进行编码，其中不好含任何控件和格式字符
+
+
+
+`stripTrailingZeros()`：BigDecimal去掉小数点后无用的0
+
+
+
+### stream求和
+
+```java
+long s1 = list.stream().map(Bean:getNum1).reduce(Long::sum).get();
+double s2 = list.stream().map(Bean:getNum2).reduce(Double::sum).get();
+```
+
+
+
+### multipart文件上传文件过大
+
+#### 1、yaml
+
+```yaml
+spring:
+  servlet:
+  	multipart:
+  		#Spring Boot 2.0以上的版本MB需要大写；2.0一下的版本可以写为Mb
+  		max-file-size: 10MB #单个文件最大值
+  		max-request-size: 100MB #总上传最大值
+  		enable: true
+```
+
+
+
+#### 2、配置bean
+
+```java
+@Configuration
+public class MultipartFileConfig {
+    @Bean
+    public MultipartConfigElement multipartConfigElement() {
+        MultipartConfigFactory factory = new MultipartConfigFactory();
+        //  单个数据最大值 7Mb, 原方法 setMaxFileSize(long maxFileSize) 已经过期,建议使用 setMaxFileSize(DataSize maxFileSize)
+        factory.setMaxFileSize(DataSize.ofBytes(1024 * 1024 * 10L));
+        /// 总上传数据最大值 14M, 同将 setMaxRequestSize(long maxRequestSize) 方法替换为 setMaxRequestSize(DataSize 			    maxRequestSize)
+        factory.setMaxRequestSize(DataSize.ofBytes(1024 * 1024 * 100L));
+        // DataSize 方法属性配置建议自行查看源码
+        return factory.createMultipartConfig();
+    }
+}
+```
+
+
+
+
+
+
+

@@ -35,7 +35,7 @@
 | F8                   | 单步调试                                      |
 | F9                   | resume                                        |
 | ctrl+shift+F8        | 查看所有的断点                                |
-| shift+F9             | 运行调试                                      |
+| **shift+F9**         | 运行调试                                      |
 | alt+F8               | debug时选中并求值                             |
 | alt+F9               | 调试的时候跳转行(需要先移动鼠标)              |
 | alt+shift+F9         | 查看已运行过的类                              |
@@ -61,3 +61,7 @@
 | ctrl+alt+t           | 选择包裹的live template，包括自带的if while等 |
 | ctrl+F12             | 在类中快速定位一个方法                        |
 | ctrl+shift+方向箭    | 交换上下两行的位置                            |
+
+
+
+**键盘映射**：settings -> keymap -> main menu -> window ->editor tabs
