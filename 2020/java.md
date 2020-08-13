@@ -38,6 +38,41 @@ System.out.println(a.compareTo(b)); //-->true
 
 
 
+# 正则
+
+## 元字符
+
+| 元字符 | 描述                                                         |
+| ------ | ------------------------------------------------------------ |
+| .      | 匹配任意单个字符除了换行符                                   |
+| []     | 字符种类。匹配方括号中的任意字符                             |
+| [^ ]   | 否定的字符种类。匹配除了方括号里的任意字符                   |
+| *      | 匹配>=0个重复在*之前的字符                                   |
+| +      | 匹配>=1个重复在+之前的字符                                   |
+| ?      | 标记?出现的字符可选                                          |
+| {n,m}  | 匹配num个大括号之前的字符或字符集(n <= num <=m)              |
+| (xyz)  | 字符集，匹配与xyz完全相等的字符串                            |
+| \|     | 或运算符，匹配符号前或后的字符                               |
+| \      | 转义字符，用于匹配一些保留的字符，`[] {} () . * + ? ^ $ \ |` |
+| ^      | 从开始行开始匹配                                             |
+| $      | 从结束行开始匹配                                             |
+
+## 简写字符集
+
+| 简写 | 描述                                         |
+| ---- | -------------------------------------------- |
+| .    | 除换行符之外所有的字符                       |
+| \w   | 匹配所有的数字和字母，等同于：`[A-Za-z0-9_]` |
+| \W   | 匹配所有的非字母数字，即符号，等同于：`[\w]` |
+| \d   | 匹配数字，等同于：`[0-9]`                    |
+| \D   | 匹配非数字，等同于：`[^\d]`                  |
+| \n   | 匹配一个换行符                               |
+| \r   | 匹配一个回车符                               |
+| \t   | 匹配一个制表符                               |
+| \f   | 匹配一个换页符                               |
+
+
+
 # 类型转换
 
 int转string
@@ -308,5 +343,59 @@ public class MultipartFileConfig {
 
 
 
+### char数组和string相互转换
+
+```java
+String str = "hello";
+char[] c = str.toCharArray(); // string转char数组
+String s = String.valueOf(c); // char数组转string
+```
 
 
+
+### 字符串是否都为字母
+
+```java
+public static boolean isLetter(String str){
+    Pattern p = Pattern.compile("^[A-Za-z]+$");
+    Matcher m = p.matcher(str);
+    return m.matches();
+}
+```
+
+
+
+### SpringBootConfiguration
+
+#### 1、作用
+
++ 用来把启动类注入到容易中
++ 定义容器扫描的范围
++ 加载classpath中的一些bean
+
+#### 2、属性
+
++ scanBasePackages：显示指定要扫描的包的范围
++ scanBasePackageClasses：显示指定要扫描的类
++ exclude：显示指定要排除的类
++ excludeName：显示指定要排除的类的名字
+
+
+
+### @Configuration注解总结
+
++ @configuartion等价于<Beans></Beans>
++ @Bean等价于<Bean></Bean>
++ ComponentScan等价于<context:component-scan base-package="com.xxx"/>
+
+
+
+### this
+
+java中this指代的当前对象
+
+
+
+```java
+Character.isDigit(c)：判断字符是否为数字类型
+```

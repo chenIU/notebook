@@ -49,7 +49,7 @@
 | git config user.name                                   | 查看某项配置                                   |
 | git rest HEAD                                          | 暂存区的目录树会被重写                         |
 | git clone xxx repo_name                                | clone的时候指定新的仓库名称                    |
-| git diff                                               | 查看尚未缓存的改动                             |
+| **git diff**                                           | 查看尚未缓存的改动                             |
 | git diff --cached                                      | 查看已缓存的改动                               |
 | git diff HEAD                                          | 查看已缓存和尚未缓存的改动                     |
 | git diff --state                                       | 显示摘要而非整个diff                           |
