@@ -261,3 +261,4 @@ jwt的组成部分：header(头部)、payload(载荷)、signature(签名)
 
 
 
+![image-20200826114413769](https://i.loli.net/2020/08/26/G5xJ6OURn4ioYdb.png)
