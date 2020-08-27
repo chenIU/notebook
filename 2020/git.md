@@ -98,13 +98,13 @@
 
 是一个指向本地工作分支的指针，可以将HEAD想象为当前分支的别名。
 
-![HEAD图示](D:\snipaste\Snipaste_2020-04-24_08-38-05.png)
+![HEAD](http://cdn.chenjianyin.com/markdown/HEAD.png)
 
 ## 2、Merge into Current
 
 合并指定分支到当前分支，可以理解为current省略了this。
 
-![image-20200424101613347](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200424101613347.png)
+![image-20200424101613347](http://cdn.chenjianyin.com/markdown/image-20200424101613347.png)
 
 当前分支test，此操作过后，dev分支合并到test分支。
 
