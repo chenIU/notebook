@@ -296,6 +296,37 @@ public class MultipartFileConfig {
 
 
 
+### 数据库加密
+
+1、引入依赖
+
+```xml
+<dependency>
+			<groupId>com.github.ulisesbocchio</groupId>
+			<artifactId>jasypt-spring-boot-starter</artifactId>
+			<version>1.18</version>
+		</dependency>
+```
+
+2、生成密码
+
+`java -cp jasypt-x.x.x.jar  org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI input="xxx" password=e9fbdb2d3b21 algorithm=PBEWithMD5AndDES`
+
+3、配置密码
+
+```yaml
+jasypt:
+  encryptor:
+    password: xxx # 盐
+    
+spring:
+  datasource:
+  	username: ENC(xxx) # 加密后的用户名
+  	password: ENC(xxx) # 加密后的密码
+```
+
+
+
 
 
 
