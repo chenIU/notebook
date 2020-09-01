@@ -89,6 +89,9 @@
 | git log --oneline --graph                              | 图形化形式查看提交日志                         |
 | git log --pretty=oneline --abbrev-commit               | 简略形式查看提交日志                           |
 | git push --delete origin branch_name                   | 删除远程分支                                   |
+| git checkout -- filename                               | 放弃某个文件的修改                             |
+| git clean -n                                           | 是一次clean演习，只会提醒，不会真的clean       |
+| git clean -f (-df/-xf)                                 | 删除当前目录下所有没有被track过的文件          |
 
 
 
