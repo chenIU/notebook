@@ -428,3 +428,14 @@ java中this指代的当前对象
 ```java
 Character.isDigit(c)：判断字符是否为数字类型
 ```
+
+
+
+生成指定范围的随机数
+
+```java
+private static int randomInt(int min,int max){
+    return new Random.nextInt(max)%(max-min+1) + min;
+}
+```
+

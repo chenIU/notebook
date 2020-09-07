@@ -288,13 +288,13 @@ git push -f
 
 
 
+# 设置
 
+## git log 美化
 
+git config --global alias.plog "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
-
-
-
-
+![image-20200907113450521](http://cdn.chenjianyin.com/markdown/git-log-pretty.png)
 
 
 
