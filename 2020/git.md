@@ -206,5 +206,95 @@ git push origin HEAD --force
 
 
 
+# 检查与撤销修改
+
+## 检查修改
+
+### 已修改，未暂存
+
+```
+git diff
+```
+
+### 已暂存，未提交
+
+```
+git diff --cached
+```
+
+git diff只检查工作区和暂存区之间的差异，如果想查看暂存区和本地仓库之间的差异，需要加上--cached参数
+
+### 已提交，未推送
+
+```
+git diff origin/master
+```
+
+origin/master代表远程仓库，git diff加上此参数之后可以查看本地仓库和远程仓库之间的差异
+
+
+
+## 撤销修改
+
+### 已修改，未暂存
+
+```
+git checkout .
+```
+
+或者
+
+```
+git reset --hard
+```
+
+```
+git add . 和 git checkout . 是一对反义词，做完修改之后，如果想往前走一步进入暂存区，就执行git add .，如果想往后走一步，撤销刚才的更改，就执行git checkout .
+```
+
+### 已暂存，未提交
+
+```
+git reset 
+git checkout .
+```
+
+或者
+
+```
+git reset --hard
+```
+
+git reset只是将修改回退到git add .之前的状态。也就是说文件本身还处于已修改未暂存的状态，如果要退回到未修改的状态，还需要执行git checkout .
+
+### 已提交，未推送
+
+如果既执行了git add .，又执行了git commit -m "comment"，这时候代码已经进入到本地仓库，可以执行以下命令撤销修改：
+
+```
+git reset --hard origin/master
+```
+
+origin/master代表远程仓库，既然本地仓库的代码已经被污染，就从远程仓库拉取最新无污染的代码覆盖本地仓库
+
+### 已推送
+
+如果已经推送了此次修改，可以先恢复本地仓库的代码，再强制推送到远程仓库即可，如下：
+
+```
+git reset --hard HEAD^
+git push -f
+```
+
+
+
+
+
+
+
+
+
+
+
 
 
