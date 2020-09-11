@@ -1,3 +1,10 @@
+# 常用方法
+
++ Arrays.asList(T... a)：将数组转成集合
++ list.toArray()：将集合转成数组
+
+
+
 # BigDecimal
 
 ## 1.创建
@@ -438,4 +445,40 @@ private static int randomInt(int min,int max){
     return new Random.nextInt(max)%(max-min+1) + min;
 }
 ```
+
+
+
+### 异常
+
++ 获取异常的种类
+
+  ```java
+  e.getClass.getSimpleName();
+  ```
+
++ 获取异常具体信息
+
+  ```java
+  e.getMessage();
+  ```
+
+  
+
+### 注解
+
++ 定义注解时，`@Target`可有可无。若有，则注解只能用在它所指定的地方；若没有，注解可以用在任何地方。
++ 定义注解时，`@RentionPolicy`可有可无。默认是`RentionPolicy.CLASS。`
++ 对于返回值是数组类型的抽象方法，在声明值的时候需要用`{}`。如果只有一个值，`{}`可以省略。
++ 如果注解中只有一个抽象方法，且名称为`value()`，则在声明值时，抽象方法的名称可以省略。
+
+
+
+### 修饰符
+
+|               | 类内部 | 本包 | 子类 | 外部包 |
+| ------------- | ------ | ---- | ---- | ------ |
+| **public**    | ✔      | ✔    | ✔    | ✔      |
+| **protected** | ✔      | ✔    | ✔    | ❌      |
+| **default**   | ✔      | ✔    | ❌    | ❌      |
+| **private**   | ✔      | ❌    | ❌    | ❌      |
 
