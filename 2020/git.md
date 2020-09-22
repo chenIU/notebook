@@ -1,13 +1,7 @@
 # 常用命令
 | 命令                                                   | 说明                                           |
 | ------------------------------------------------------ | ---------------------------------------------- |
-| git push origin :branch_name                           | 删除远程分支                                   |
-| git branch -r -d origin/branch_name                    | 删除远程分支                                   |
-| git branch -d branch_name                              | 删除本地分支                                   |
-| git branch -D branch_name                              | 强制删除本地分支                               |
 | git checkout --track origin/branch_name                | 在本地建立一个远程分支的跟踪分支               |
-| git checkout -b branch_name origin                     | 复制远程的分支                                 |
-| git push --set-upstream origin branch_name             | 将本地的新分支推送到远程                       |
 | git rebase 主干分支  特性分支                          | 将特性分支中的内容变基到主干分支               |
 | git rebase --continue                                  | 继续变基操作                                   |
 | git rebase --skip                                      | 跳过变基操作                                   |
@@ -15,7 +9,6 @@
 | git rabase --onto master server client                 | 找出client和server的不同变基到master           |
 | git show SHA-1的值                                     | 查看具体某次提交的详细信息                     |
 | git log --abbrev-commit --pretty=oneline               | 美化git提交日志                                |
-| git show branch_name                                   | 查看某个分支最后一次提交信息                   |
 | git reflog                                             | 引用日志里的简称                               |
 | git show HEAD^        等价于HEAD~                      | HEAD的父提交                                   |
 | git stash                                              | 暂存当前修改                                   |
@@ -45,18 +38,16 @@
 | git push origin --tags                                 | 一次性推送所有标签                             |
 | git fetch + git merge =git pull                        | 后者可能会出现冲突                             |
 | git fetch origin                                       | 拉取默认分支的内容                             |
-| git fetch origin branch1:branch2                       | 在本地创建分支并拉取                           |
 | git config user.name                                   | 查看某项配置                                   |
 | git rest HEAD                                          | 暂存区的目录树会被重写                         |
 | git clone xxx repo_name                                | clone的时候指定新的仓库名称                    |
-| **git diff**                                           | 查看尚未缓存的改动                             |
+| git diff                                               | 查看尚未缓存的改动                             |
 | git diff --cached                                      | 查看已缓存的改动                               |
 | git diff HEAD                                          | 查看已缓存和尚未缓存的改动                     |
 | git diff --state                                       | 显示摘要而非整个diff                           |
 | git commit -am "xxx"                                   | 跳过git add而直接commit                        |
 | git reset HEAD                                         | 取消已缓存的内容                               |
 | git rm --cached  file_name                             | 从暂存区移除，在工作目录中保存                 |
-| git checkout -b branch_name                            | 创建并切换分支                                 |
 | git log --oneline                                      | 简明查看提交日志                               |
 | git log --reverse --oneline                            | 逆向查看日志                                   |
 | git remote                                             | 当前仓库配置了哪些远程仓库                     |
@@ -88,10 +79,72 @@
 | git config --global --unset alias.br                   | 取消别名                                       |
 | git log --oneline --graph                              | 图形化形式查看提交日志                         |
 | git log --pretty=oneline --abbrev-commit               | 简略形式查看提交日志                           |
-| git push --delete origin branch_name                   | 删除远程分支                                   |
 | git checkout -- filename                               | 放弃某个文件的修改                             |
 | git clean -n                                           | 是一次clean演习，只会提醒，不会真的clean       |
 | git clean -f (-df/-xf)                                 | 删除当前目录下所有没有被track过的文件          |
+| git commit --amend -m "xxx"                            | 替换上一次的提交信息                           |
+| git bisect start start end                             | 二分法查找代码错误                             |
+| gitk                                                   | 图形化展示git提交历史                          |
+| git init [project_name]                                | 初始化一个git仓库                              |
+| git config -e --global                                 | 编辑git配置文件                                |
+| git rm --cached [file]                                 | 停止追踪某个文件，依赖保留在暂存区             |
+| git commit -am "xxx"                                   | add和commit合并成一步                          |
+
+
+
+# 分支
+
+| 命令                                               | 说明                                         |
+| -------------------------------------------------- | -------------------------------------------- |
+| git branch                                         | 列出所有的本地分支                           |
+| git branch -r                                      | 列出所有的远程分支                           |
+| git branch -a                                      | 列出所有的分支                               |
+| git branch [branch]                                | 新建分支，但依然停留在当前分支               |
+| git branch -b [branch]                             | 新建分支，并切换到该分支                     |
+| git branch -b [branch] [origin]                    | 检出远程分支                                 |
+| git branch [branch] [commit]                       | 新建一个分支，并指向某次commit               |
+| git branch --track [branch] [remote-branch]        | 新建一个分支，并与执行的远程分支建立追踪关系 |
+| git checkout [branch]                              | 切换到执行分支，并更新工作区                 |
+| git checkout -                                     | 切换到上一个分支                             |
+| git fetch origin [branch]:[branch]                 | 本地创建分支并拉取                           |
+| git branch --set-upstream [branch] [remote-branch] | 将本地分支和远程分支建立追踪关系             |
+| git merge [branch]                                 | 合并分支到当前分支                           |
+| git cherry-pick [commit]                           | 选择一个commit，合并到当前分支               |
+| git branch -d [branch]                             | 删除分支                                     |
+| git branch -D [branch]                             | 强制删除分支                                 |
+| git push origin --delete [branch]                  | 删除远程分支                                 |
+| git push origin :[branch]                          | 删除远程分支                                 |
+| git branch -dr [remote/branch]                     | 删除远程分支                                 |
+| git show [branch]                                  | 查看某个分支最后一次提交信息                 |
+
+
+
+# 查看信息
+
+| 命令                                | 说明                                 |
+| ----------------------------------- | ------------------------------------ |
+| git diff                            | 显示工作区暂存区的差异               |
+| git diff HEAD                       | 显示工作区和当前commit的差异         |
+| git shortlog -sn                    | 显示提交过的用户，按照提交次数排序   |
+| git blame [file]                    | 显示指定文件被什么人什么时间修改过   |
+| git log -p [file]                   | 显示和指定文件有关的提交             |
+| git log --follow [file]             | 查看某个文件的修改历史，包括文件改名 |
+| git whatchanged [file]              | 查看某个文件的修改历史，包括文件改名 |
+| git log -S [keyword]                | 按关键字搜索提交信息                 |
+| git diff --shortstat "@{0 day ago}" | 显示今天提交代码量                   |
+
+
+
+# 归档(archive)
+
+| 命令                                                         | 说明                                       |
+| ------------------------------------------------------------ | ------------------------------------------ |
+| git archive -l                                               | 查看archive支持的目录                      |
+| git archive --format tar.gz --output "./output.tar.gz" master | 打包并执行格式                             |
+| git archive --output "./output.tar.gz" master                | 也可以不指定格式，可以根据输出文件自己判断 |
+| git archive --format tar.gz --output "./output.tar.gz" test  | 打包某个分支                               |
+| git archive --format tar.gz --output "./output.tar.gz" 5ca16ac0d603603 | 打包某次提交                               |
+| git archive --format tar.gz --output "./output.tar.gz" master mydir mydir2 | 打包某些目录                               |
 
 
 
@@ -293,6 +346,14 @@ git push -f
 ## git log 美化
 
 git config --global alias.plog "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+
+
+
+# 后悔药
+
+git reflog
+
+
 
 
 
