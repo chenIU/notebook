@@ -78,6 +78,7 @@
 | git config --list\|grep alias                          | 查看别名                                       |
 | git config --global --unset alias.br                   | 取消别名                                       |
 | git log --oneline --graph                              | 图形化形式查看提交日志                         |
+| git log --pretty=oneline                               | 美化git提交日志                                |
 | git log --pretty=oneline --abbrev-commit               | 简略形式查看提交日志                           |
 | git checkout -- filename                               | 放弃某个文件的修改                             |
 | git clean -n                                           | 是一次clean演习，只会提醒，不会真的clean       |
