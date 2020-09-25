@@ -103,6 +103,21 @@ docker stop container_id/container_name
 
 
 
+**文件传输**
+
++ 宿主机文件传到docker容器中：docker cp 本地文件路径 容器ID/名称:/目标路径
++ docker容器文件传到宿主机中：docker cp 容器ID/名称:/文件路径 本地路径
+
+
+
+**docker容器中启动redis**
+
+```bash
+docker run -p 16379:6379 --name redis -v /usr/local/docker/redis.conf:/etc/redis/redis.conf -v /usr/local/docker/data:/data -d redis redis-server /etc/redis/redis.conf
+```
+
+
+
 # 总结
 
 **容器内安装软件**
