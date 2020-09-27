@@ -103,6 +103,14 @@ docker stop container_id/container_name
 
 
 
+**查看端口映射**
+
+docker port container_name/id
+
+docker inspect container_name/id
+
+
+
 **文件传输**
 
 + 宿主机文件传到docker容器中：docker cp 本地文件路径 容器ID/名称:/目标路径
@@ -112,9 +120,24 @@ docker stop container_id/container_name
 
 **docker容器中启动redis**
 
-```bash
-docker run -p 16379:6379 --name redis -v /usr/local/docker/redis.conf:/etc/redis/redis.conf -v /usr/local/docker/data:/data -d redis redis-server /etc/redis/redis.conf
++ 快速启动
+
 ```
+docker run -itd --name docker-redis -p 6379:6379 redis
+```
+
++ 配置文件启动
+
+```bash
+docker run -p 16379:6379 --name redis -v /usr/local/docker/redis.conf:/etc/redis/redis.conf -v /usr/local/docker/data:/data -d redis redis-server /etc/redis/redis.conf --appendonly yes
+```
+
++ -p：端口映射
++ --name：指定容器名称
++ -v：挂载目录
++ -d：后台启动
++ redis-server：以配置文件启动redis
++ --appendonly yes：开启redis持久化
 
 
 
