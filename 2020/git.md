@@ -90,6 +90,7 @@
 | git config -e --global                                 | 编辑git配置文件                                |
 | git rm --cached [file]                                 | 停止追踪某个文件，依赖保留在暂存区             |
 | git commit -am "xxx"                                   | add和commit合并成一步                          |
+| git log branch                                         | 查看某个分支的提交日志                         |
 
 
 
@@ -151,13 +152,13 @@
 
 # 名词解释
 
-## 1、HEAD
+## 1.HEAD
 
 是一个指向本地工作分支的指针，可以将HEAD想象为当前分支的别名。
 
 ![HEAD](http://cdn.chenjianyin.com/markdown/HEAD.png)
 
-## 2、Merge into Current
+## 2.Merge into Current
 
 合并指定分支到当前分支，可以理解为current省略了this。
 
@@ -165,11 +166,15 @@
 
 当前分支test，此操作过后，dev分支合并到test分支。
 
+## 3.git pull/fetch
+
+git pull = git fetch + git merge
+
 
 
 # 组合操作
 
-## 1、关联仓库
+## 1.关联仓库
 
 git add .
 
@@ -179,7 +184,7 @@ git remote add origin url
 
 git push -u origin master
 
-## 2、merge回滚
+## 2.merge回滚
 
 git checkout branch_name：切换到需要处理的分支上
 
@@ -187,7 +192,7 @@ git reflog：查看提交历史记录
 
 git reset --hard commit_id：回滚到merge之前的版本号
 
-## 3、回退远程代码
+## 3.回退远程代码
 
 git reflog| grep branch_name：查看需要回退版本的commit_id
 
@@ -195,7 +200,7 @@ git reset --hard commit_id：回退代码
 
 git push origin HEAD --force：强制提交到远程
 
-## 4、推送分支
+## 4.推送分支
 
 git checkout -b branch_name：本地新建分支
 
@@ -207,7 +212,7 @@ git branch -d branch_name：删除本地分支
 
 git push origin :branch_name：删除远程分支
 
-## 5、cherry-pick
+## 5.cherry-pick
 
 git cherry-pick commit_id：合并其他分支指定的commit_id
 
@@ -217,7 +222,7 @@ git cherry-pick --skip：跳过本地合并
 
 git cherry-pick --abort：放弃本次cherry-pick
 
-## 6、回退提交
+## 6.回退提交
 
 ### 6.1 本地回退
 
@@ -226,6 +231,12 @@ git reset --hard commit_id(可以使用git log -online查看)
 ### 6.2 远程回退
 
 git push origin HEAD --force
+
+## 7.强制覆盖本地代码
+
+git fetch -all
+
+git reset --hard origin/master
 
 
 

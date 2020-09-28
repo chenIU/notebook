@@ -115,3 +115,10 @@ proxy_set_header X-Real-IP $remote_addr;
 proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
 ```
 
+
+
+**参数**
+
+-c：file 		Use an alternative configuration <u>file</u>
+
+-p：prefix  Set the prefix path. The default value is <u>/usr/share/nginx</u>
