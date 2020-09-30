@@ -485,3 +485,44 @@ private static int randomInt(int min,int max){
 
 
 **Method Reference**
+
+
+
+**java数据类型**
+
+![20140531091306906](http://cdn.chenjianyin.com/markdown/java_data_type.jpg)
+
+
+
+## Validator
+
+**JSR提供的校验注解** 		`jSR(Java Specification Requests) Java规范请求`
+
+| 注解                      | 解释                                                   |
+| ------------------------- | ------------------------------------------------------ |
+| @Null                     | 作用的元素必须是null                                   |
+| @NotNull                  | 作用的元素必须不是null                                 |
+| @AssertTrue               | 作用的元素必须是true                                   |
+| @AssertFalse              | 作用的元素必须是false                                  |
+| @Min(value)               | 作用的元素必须是一个数字，其值必须大于等于指定的值     |
+| @Max(value)               | 作用的元素必须是一个数字，其值必须小于等于指定的值     |
+| @DecimalMin(value)        | 作用的元素必须是一个数字，其值必须大于等于指定的值     |
+| @DecimalMax(value)        | 作用的元素必须是一个数字，其值必须小于等于指定的值     |
+| @Size(max = ,min =)       | 作用的元素大小必须在指定的范围内                       |
+| @Digit(integer,fraction)  | 作用的元素大小必须是一个数字，其值必须在可接受的范围内 |
+| @Past                     | 作用的元素必须是一个过去的日期                         |
+| @Future                   | 作用的元素必须是一个将来的日期                         |
+| @Pattern(regex = ,flag =) | 作用的元素必须符合指定的正则表达式                     |
+
+
+
+**Hibernate Validator提供的校验注解**
+
+| 注解                            | 解释                                  |
+| ------------------------------- | ------------------------------------- |
+| @NotBlank(message = )           | 验证字符串非null，且trim后的长度大于0 |
+| @Email                          | 作用的元素必须是电子邮箱地址          |
+| @Length(min = ,max = )          | 被注解的字符串长度必须在指定的范围内  |
+| @NotEmpty                       | 被注解的字符串必须非空                |
+| @Range(min = ,max = ,message =) | 被注解的元素必须在合适的范围内        |
+

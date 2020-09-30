@@ -19,3 +19,23 @@ ref：显示索引的哪一列被使用了，如果可能的话，是一个常�
 rows：请求数据的行数，越小越好
 
 extra：关于mysql如何解析查询的额外信息。最坏的情况是using temporary和using filesort，这种情况下不会使用索引，结果查询会很慢
+
+
+
+**授权**
+
+`5.7`
+
+```bash
+grant all privilege on your_db.table_name(*) to 'user'@'localhost(%)' identified by 'your_password';
+flush privileges;
+```
+
+`8.0`
+
+```bash
+use mysql;
+ALTER USER 'roo'@'localhost' IDENTIFIED WITH mysql_native_password BY 'xxx';
+flush privileges;
+```
+
