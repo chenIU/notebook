@@ -39,3 +39,27 @@ ALTER USER 'roo'@'localhost' IDENTIFIED WITH mysql_native_password BY 'xxx';
 flush privileges;
 ```
 
+
+
+**事务隔离级别**
+
+`5.7`
+
+```bash
+当前会话：select @@tx_isolation
+```
+
+```
+全局：select @@global.tx_isolation
+```
+
+`8.0`
+
+```
+当前会话：select @@transaction_isolation
+```
+
+```
+全局：select @@global.transaction_isolation
+```
+
