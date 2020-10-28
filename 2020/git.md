@@ -367,6 +367,16 @@ git reflog
 
 
 
+## 工作总结
+
+> 场景：在master上修改了代码并提交推送，想把这部分代码合到dev或者test分支上
+
+```bash
+git log：查看这次提交的commit_id
+git checkout dev：从master分支切换到dev分支
+git cherry-pick commit_id：将刚才那一部分代码复制到dev分支上来
+```
+
 
 
 
