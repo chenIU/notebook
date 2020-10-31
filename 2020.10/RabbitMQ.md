@@ -93,4 +93,15 @@ rabbitmqctl delete_user guest
 ## 注意事项
 
 + guest用户只允许本机登录
-+ rabbitmq用到两个端口，5672,15672
++ rabbitmq用到两个端口，5672(实际),15672(web管理)
+
+
+
+## 工作模式
+
++ Work Queue：工作队列模式
++ Publish/Subscribe：发布订阅模式
++ Routing：路由模式
++ Topic：通配符模式
++ Header：header模式
++ RPC：远程调用模式
