@@ -379,5 +379,10 @@ git cherry-pick commit_id：将刚才那一部分代码复制到dev分支上来
 
 
 
+> 本地仓库和远程仓库关联
 
+```bash
+git remote add origin git@github.com:chenIU/rabbitmq.git
+git push -u origin master
+```
 
