@@ -526,3 +526,23 @@ private static int randomInt(int min,int max){
 | @NotEmpty                       | 被注解的字符串必须非空                |
 | @Range(min = ,max = ,message =) | 被注解的元素必须在合适的范围内        |
 
+
+
+## redis存储对象的三种方式
+
++ 序列化操作
++ 使用fastjson将对象转为json字符串后存储
++ 使用hash数据类型
+
+
+
+**Spring Cache是Java世界中所有缓存的门面**
+
+
+
+## Spring Boot中的日志
+
++ 门面（Apache commons-logging、SLF4j）
++ 具体实现(java.util.logging、log4j、logback)
+
+
