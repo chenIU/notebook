@@ -1,9 +1,3 @@
-
-
-
-
-
-
 # 常用命令
 
 | 命令                                                   | 说明                                           |
@@ -103,28 +97,29 @@
 
 # 分支
 
-| 命令                                               | 说明                                         |
-| -------------------------------------------------- | -------------------------------------------- |
-| git branch                                         | 列出所有的本地分支                           |
-| git branch -r                                      | 列出所有的远程分支                           |
-| git branch -a                                      | 列出所有的分支                               |
-| git branch [branch]                                | 新建分支，但依然停留在当前分支               |
-| git branch -b [branch]                             | 新建分支，并切换到该分支                     |
-| git branch -b [branch] [origin]                    | 检出远程分支                                 |
-| git branch [branch] [commit]                       | 新建一个分支，并指向某次commit               |
-| git branch --track [branch] [remote-branch]        | 新建一个分支，并与执行的远程分支建立追踪关系 |
-| git checkout [branch]                              | 切换到执行分支，并更新工作区                 |
-| git checkout -                                     | 切换到上一个分支                             |
-| git fetch origin [branch]:[branch]                 | 本地创建分支并拉取                           |
-| git branch --set-upstream [branch] [remote-branch] | 将本地分支和远程分支建立追踪关系             |
-| git merge [branch]                                 | 合并分支到当前分支                           |
-| git cherry-pick [commit]                           | 选择一个commit，合并到当前分支               |
-| git branch -d [branch]                             | 删除分支                                     |
-| git branch -D [branch]                             | 强制删除分支                                 |
-| git push origin --delete [branch]                  | 删除远程分支                                 |
-| git push origin :[branch]                          | 删除远程分支                                 |
-| git branch -dr [remote/branch]                     | 删除远程分支                                 |
-| git show [branch]                                  | 查看某个分支最后一次提交信息                 |
+| 命令                                                     | 说明                                         |
+| -------------------------------------------------------- | -------------------------------------------- |
+| git branch                                               | 列出所有的本地分支                           |
+| git branch -r                                            | 列出所有的远程分支                           |
+| git branch -a                                            | 列出所有的分支                               |
+| git branch <branch_name>                                 | 新建分支，但依然停留在当前分支               |
+| git branch -b <branch_name>                              | 新建分支，并切换到该分支                     |
+| git branch -b <local_branch> <remote_branch>             | 检出远程分支                                 |
+| git branch <branch_name> <commit_id>                     | 新建一个分支，并指向某次commit               |
+| git branch --track <local_branch> <remote_branch>        | 新建一个分支，并与执行的远程分支建立追踪关系 |
+| git checkout <branch_name>                               | 切换到执行分支，并更新工作区                 |
+| git checkout -                                           | 切换到上一个分支                             |
+| git fetch origin <branch_name>:<branch_name>             | 本地创建分支并拉取                           |
+| git branch --set-upstream <local_branch> <remote_branch> | 将本地分支和远程分支建立追踪关系             |
+| git merge <branch_name>                                  | 合并分支到当前分支                           |
+| git cherry-pick <commit_id>                              | 选择一个commit，合并到当前分支               |
+| git push origin <origin_name>                            | 将本地分支推送到远程                         |
+| git branch -d <branch_name>                              | 删除分支                                     |
+| git branch -D <branch_name>                              | 强制删除分支                                 |
+| git push origin --delete <branch_name>                   | 删除远程分支                                 |
+| git push origin :<branch_name>                           | 删除远程分支                                 |
+| git branch -dr <remote_branch>                           | 删除远程分支                                 |
+| git show <branch_name>                                   | 查看某个分支最后一次提交信息                 |
 
 
 
@@ -393,3 +388,12 @@ git remote add origin git@github.com:chenIU/rabbitmq.git
 git push -u origin master
 ```
 
+
+
+> git rebase 
+
++ git rebase -i HEAD~3
+
++ 第一个pick不能改成squash
+
+  git rebase主要的作用是将多次提交合并为一次，或者将非线性提交改为线性提交。

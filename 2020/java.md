@@ -546,3 +546,9 @@ private static int randomInt(int min,int max){
 + 具体实现(java.util.logging、log4j、logback)
 
 
+
+`Spring 实例化bean默认是非懒加载形式`
+
+
+
+@Lazy = true 懒加载，false 非懒加载。默认值是true
