@@ -55,10 +55,10 @@ can not run elasticsearch as root
 在 Linux 环境中，elasticsearch 不允许以 root 权限来运行！所以需要创建一个非root用户，以非root用户来起es。
 
 ```bash
-groupadd elk #创建用户组elk
-useradd elk -g elk  -p 123456 #创建用户并指定用户组和密码
-chown -R elk:elk /usr/local/elasticsearch-7.9.3/ #修改权限
-su elk #切换到elk用户
+groupadd es #创建用户组es
+useradd es -g es  -p 123456 #创建用户并指定用户组和密码
+chown -R es:es /usr/local/elasticsearch-7.9.3/ #修改权限
+su es #切换到es用户
 ```
 
 
