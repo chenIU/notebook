@@ -11,7 +11,7 @@ rabbitmq-server -detached
 > 停止
 
 ```bash
-rabbitmq stop
+rabbitmqctl stop
 ```
 
 
@@ -58,7 +58,7 @@ rabbitmqctl add_user chenjy 123456
 
 
 
-> 查看用户权限
+> 配置权限
 
 ```
 rabbitmqctl set_permissions -p "/" chenjy ".*" ".*" ".*"
@@ -94,6 +94,7 @@ rabbitmqctl delete_user guest
 
 + guest用户只允许本机登录
 + rabbitmq用到两个端口，5672(实际),15672(web管理)
++ 主机名称一定要在/etc/hosts中配置的才行，使用rabbitmq不能随便修改主机名称。
 
 
 

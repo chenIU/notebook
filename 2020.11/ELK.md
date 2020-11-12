@@ -53,7 +53,7 @@ netstat -tnl
 ## 部署ElasticSearch服务
 
 ```bash
-docker run -d  -p 9200:9200 -p 9300:9300 -v ~/elasticsearch/data:/usr/share/elasticsearch/data -e ES_JAVA_OPTS="-Xms256m -Xmx256m" -e "discovery.type=single-node" --name elasticsearch elasticsearch:7.9.3
+docker run -d  -p 9200:9200 -p 9300:9300 -v ~/elasticsearch/data:/usr/share/elasticsearch/data -e ES_JAVA_OPTS="-Xms256m -Xmx256m" -e "discovery.type=single-node" --name elasticsearch elasticsearch
 ```
 
 
@@ -114,7 +114,7 @@ input {
 
 output {
   elasticsearch {
-    hosts => [ "localhost:9200" ]
+    hosts => [ "elasticsearch:9200" ]
   }
 }
 ```
@@ -124,7 +124,7 @@ output {
 配置完成后，启动Logstash容器：
 
 ```bash
-docker run -d -p 4560:4560 -v /usr/local/elk/logstash/logstash.conf:/etc/logstash.conf -e LS_JAVA_OPTS="-Xms256m -Xmx256m" --link elasticsearch:elasticsearch --name logstash logstash:7.9.3 logstash -f /etc/logstash.conf
+docker run -d -p 4560:4560 -v /usr/local/elk/logstash/logstash.conf:/etc/logstash.conf -e LS_JAVA_OPTS="-Xms256m -Xmx256m" --link elasticsearch:elasticsearch --name logstash logstash logstash -f /etc/logstash.conf
 ```
 
 
@@ -146,7 +146,7 @@ OpenJDK 64-Bit Server VM warning: INFO: os::commit_memory(0x00000000c5330000, 98
 ## 部署Kibana服务
 
 ```bash
-docker run -d -p 5601:5601 --link elasticsearch:elasticsearch -e ELASTICSEARCH_URL=http://localhost:9200 --name kibana kibana:7.9.3
+docker run -d -p 5601:5601 --link elasticsearch:elasticsearch -e ELASTICSEARCH_URL=http://elasticsearch:9200 --name kibana kibana
 ```
 
 
