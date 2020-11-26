@@ -552,3 +552,22 @@ private static int randomInt(int min,int max){
 
 
 @Lazy = true 懒加载，false 非懒加载。默认值是true
+
+
+
+## 线程主要方法
+
+![image-20201126171115029](http://cdn.chenjianyin.com/markdown/thread.png)
+
++ sleep()：让线程休眠，交出CPU，让CPU执行其他任务。但是需要注意的是sleep不会释放锁
++ yield()：让出CPU权限，和sleep()类似。不同的是，yield不能控制交出CPU的具体时间，另外yield只能让处于相同优先级的线程获得CPU时间片的机会，而且不会让线程进入阻塞状态，而是重新进入就绪状态。
++ wait()：让线程处于waiting状态，会释放锁，是object的方法。
++ join()：实际上利用了wait()，只不过不需要notify/notifyAll唤醒，且不受此影响。它结束的条件是：
+  + 等待时间到
+  + 线程执行完毕（通过isAlive()）判断
++ interrupt()：此方法会将线程的终端标志位置为true
+  + 如果线程处于阻塞状态，那么线程会定时检查中断标志位，如果终端标志位是true，则会在阻塞方法调用处抛出InterruputedException。并且在抛出异常之后立刻将线程终端标志位清除，重新设置为false。抛出异常是为了让线程从中断状态中醒来，并且在线程结束前让程序员有足够的时间处理终端请求。
+  + 如果线程正在运行，争用synchronized，lock等，那么是不可中断的，它们会忽略。
++ suspend()/resume()：挂起线程，知道resume，才会苏醒。但是suspend线程和resume线程可能因为争锁问题发生死锁，所以在JDK1.7之后不推荐使用。
+
+**注意**：park/wait/join方法都会进去wait状态，但是wait/join方法进入的其他线程调用interrupt()，会排除异常，park则不会。
