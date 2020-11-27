@@ -43,6 +43,27 @@ System.out.println(a.compareTo(b)); //-->true
 + 尽量使用参数类型为String的构造函数。
 + BigDecimal都是不可变的（immutable）的， 在进行每一次四则运算时，都会产生一个新的对象 ，所以在做加减乘除运算时要记得要保存操作后的值。
 
+## 5.注意事项
+
+```java
+//这里为了提醒自己避免重复错误
+
+//原先的代码是这样的，想着输出会是9.00,可是结果却是0.00
+BigDecimal day_fee = new BigDecimal("0.00");
+day_fee.add( new BigDecimal("9.00"));
+System.out.print("day_fee:" + day_fee);
+
+//正确的代码应该是这样的，输出的是9.00,BigDecimal使用方法自身不会改变，没想到居然被糊弄了
+BigDecimal day_fee = new BigDecimal("0.00");
+day_fee = day_fee.add( new BigDecimal("9.00"));
+System.out.print("day_fee:" + day_fee);
+
+//BigDecimal其他的方法也是具有类似情况
+
+//附：发现了BigDecimal一个自身转负数的方法
+day_fee = day_fee.negate();
+```
+
 
 
 # 正则
