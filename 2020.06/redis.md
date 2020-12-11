@@ -38,3 +38,78 @@ redis.conf常用配置文件：
 + 互斥锁
 + jvm锁
 + 如果是分布式部署则要采用分布式事务锁
+
+
+
+## Redis内存问题
+
+### 修改内存大小
+
+**1.通过配置文件配置**
+
+```
+//设置Redis最大占用内存为100M
+maxmemory 100mb
+```
+
+**2.通过命令修改**
+
+Redis支持运行时动态修改内存大小
+
+```bash
+//设置Redis最大占用内存大小
+127.0.0.1:26379>config set maxmemory 100mb
+
+//获取能使用的最大内存大小
+127.0.0.1:26379> config get maxmemory
+```
+
+
+
+### Redis内存淘汰策略
+
++ noeviction(默认)：对于写请求不再提供服务，直接返回错误(DEL和部分请求除外)
++ allkeys-lru：对于所有的key使用LRU算法进行淘汰
++ volatile-lru：在设置了过期时间的key中使用LRU算法进行淘汰
++ allkeys-random：从所有的key中随机淘汰数据
++ volatile-random：从设置了过期时间的key中随机淘汰数据
++ volatile-ttl：在设置了过期时间的key中，根据key的过期时间进行淘汰，越早过期的越优先被淘汰
+
+> 当使用volatile-lru、volatile-random、volatile-ttl这三种策略时，如果没有key可以被淘汰，则和noeviction一样返回错误
+
+
+
+**设置和获取内存淘汰策略**
+
+获取当前内存淘汰策略
+
+```bash
+127.0.0.1:26379> config get maxmemory-policy
+```
+
+通过配置文件修改淘汰策略
+
+```
+mammemory-policy allkeys-lru
+```
+
+通过命令行修改淘汰策略
+
+```bash
+127.0.0.1:26379> config set maxmemory-policy allkeys-lru
+```
+
+
+
+Redis使用的是近似LRU算法，每次随机选出5（默认）个key，从里面淘汰最近最少使用的key。
+
+> maxmemory-samples配置的越大，Redis中LRU淘汰策略越接近严格的LRU算法。
+
+
+
+
+
+
+
+
+
