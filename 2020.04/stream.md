@@ -4,6 +4,34 @@ https://www.cnblogs.com/jimoer/p/10995574.html
 
 
 
+## 0.stream常用方法
+
+### 求和
+
+**BigDecima**
+
+```java
+BigDecimal totalAmount = userList.stream.map(User::getAmount).reduce(BigDecimal.ZERO,BigDecimal::add);
+```
+
+**int doule long**
+
+```java
+double sum = userList.stream.mapToDouble(User::getHeight).sum();
+```
+
+`mapToDouble`，`mapToInt`，`mapToLong`
+
+**空指针**
+
+```java
+double sum = userList.stream.filter(user -> StringUtils.isEmpty(user.getHeight)).mapToDouble(User::getHeight).sum();
+```
+
+解决思路：用filter过滤
+
+
+
 ## 1.创建stream
 
 1、Arrays.stream()
