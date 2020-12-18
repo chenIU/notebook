@@ -592,3 +592,15 @@ private static int randomInt(int min,int max){
 + suspend()/resume()：挂起线程，知道resume，才会苏醒。但是suspend线程和resume线程可能因为争锁问题发生死锁，所以在JDK1.7之后不推荐使用。
 
 **注意**：park/wait/join方法都会进去wait状态，但是wait/join方法进入的其他线程调用interrupt()，会排除异常，park则不会。
+
+
+
+**split**需要转义的字符：`|.+*^?[\\{()$`
+
+
+
+**回车和换行**
+
++ `\r`：回车，使光标移动到行首
++ `\n`：换行，使光标移动到下一行
++ `Enter`是两者的结合
