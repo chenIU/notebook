@@ -70,7 +70,7 @@
 | git config --global alias.last 'log -1 HEAD'           | 查看最后一次提交                               |
 | git reset --mixed HEAD^                                | commit和index回退到上个版本，保留源码变更      |
 | git reset --soft HEAD^                                 | commit回退，保留源码和index变更                |
-| git reset--hard HEAD^                                  | commit、index、源码都会回退到上个版本          |
+| git reset --hard HEAD^                                 | commit、index、源码都会回退到上个版本          |
 | git revert <commit_id>                                 | 可以将本地和远程代码同时回退，之后执行git push |
 | git config --global user.name                          | 查看user.name属性值                            |
 | git config --global user.name "chenjy"                 | 为user.name重新赋值                            |

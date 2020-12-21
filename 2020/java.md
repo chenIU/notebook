@@ -617,3 +617,12 @@ private static int randomInt(int min,int max){
 + 拦截器可以获取IoC容器中的各个bean，而过滤器不能
 + 过滤器是Serlvet规范规定的，之恶能用用户Web程序中。拦截器既可以适用于Web程序，也可用于Application、Swing程序
 + 过滤器只能在Servlet容器前后起作用，而拦截器能够深入到方法前后、异常抛出前后。所以在Spring框架程序中，优先使用拦截器
+
+
+
+## 各种数据对象之前的区别
+
++ PO（persistant object）：持久层对象，对应数据库中的表
++ DTO（data transfer object）：数据传输对象，一是可以减少数据的传输，二是可以隐藏后端表结构
++ POJO（plain ordinary java object）：简单无规则的Java对象，属性加上get、set方法
++ VO（value object）：值对象，对于一个web页面将整个页面的属性封装成一个对象，然后用一个VO对象在控制层和视图层进行传输交换
