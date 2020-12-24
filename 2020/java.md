@@ -601,9 +601,19 @@ private static int randomInt(int min,int max){
 
 **回车和换行**
 
+`CR`：回车 （Carriage Return）
+
+`LF`：换行  （Line Feed）
+
 + `\r`：回车，使光标移动到行首
 + `\n`：换行，使光标移动到下一行
 + `Enter`是两者的结合
+
+**不同操作系统换行的区别:**
+
++ Windows：CRLF
++ Unix：LR
++ Mac：CR
 
 
 
@@ -626,3 +636,16 @@ private static int randomInt(int min,int max){
 + DTO（data transfer object）：数据传输对象，一是可以减少数据的传输，二是可以隐藏后端表结构
 + POJO（plain ordinary java object）：简单无规则的Java对象，属性加上get、set方法
 + VO（value object）：值对象，对于一个web页面将整个页面的属性封装成一个对象，然后用一个VO对象在控制层和视图层进行传输交换
+
+
+
+## JVM 内存分配
+
+```bash
+export JAVA_OPTS="$JAVA_OPTS -Xms5000m -Xmx6000m -XX:PermSize=1024m -XX:MaxPermSize=2048m
+```
+
++ -Xms：最小内存分配
++ -Xmx：最大内存分配
++ -XX:PermSize：JVM启动时初始大小
++ -XX:MaxPermSize：JVM启动后可分配的最大空间

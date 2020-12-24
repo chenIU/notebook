@@ -1,4 +1,4 @@
-## 1 初识Java IO
+## 1. 初识Java IO
 
 流(stream)，是一个抽象的概念，是指一连串的数据(字节或字符)，以先进先出的方式发送信息的通道。
 
@@ -106,7 +106,7 @@ public class Test2 {
 
 **3、InputStreamReader、OutputStreamWriter(字符流)**
 
-> 字符流适用于文本文件的读写，`OutputStreamWriter`类其实也是借助`FileOutputStream`类实现的，故其构造方法是`FileOupputStream`对象
+> 字符流适用于文本文件的读写，`OutputStreamWriter`类其实也是借助`FileOutputStream`类实现的，故其构造方法是`FileOutputStream`对象
 
 ```java
 public class Test3 {
@@ -179,7 +179,7 @@ public class Test5 {
 
 
 
-## 2 IO 流对象
+## 2. IO 流对象
 
 
 
@@ -252,7 +252,7 @@ Writer和Reader结构类似，方向相反，不再赘述。
 
 
 
-## 3 IO流方法
+## 3. IO流方法
 
 ### 3.1 字节流方法
 
@@ -299,7 +299,7 @@ Writer和Reader结构类似，方向相反，不再赘述。
 
 
 
-## 4 附加内容
+## 4. 附加内容
 
 字节(Byte)是计量单位，表示数据量多少，一字节等于八位
 
