@@ -398,6 +398,28 @@ git push -u origin master
 
   git rebase主要的作用是将多次提交合并为一次，或者将非线性提交改为线性提交。
 
+**示例:**
+
+第一种方式：
+
+```bash
+$ git checkout master
+$ git rebase feature
+```
+
+这种方式是将master上所有的修改变基到feature分支上
+
+第二种方式：
+
+```bash
+$git checkout feature
+$git rebase master
+$git checkout master
+$git merge feature
+```
+
+这种方式是将feature上所做的提交合并到master分支上，一般不在公共分支上使用`rebase`命令。
+
 
 
 # 标签
