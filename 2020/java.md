@@ -5,6 +5,20 @@
 
 
 
+**运行时数据区**
+
+堆、方法区、栈、本地方法栈、程序计数器
+
+
+
+rt.jar RunTime Java运行时环境
+
+
+
+jdk1.5之后不需要配Classpath环境变量
+
+
+
 # BigDecimal
 
 ## 1.创建
@@ -63,6 +77,52 @@ System.out.print("day_fee:" + day_fee);
 //附：发现了BigDecimal一个自身转负数的方法
 day_fee = day_fee.negate();
 ```
+
+
+
+# 双亲委派机制
+
+
+
+## 什么是类加载器
+
+类加载器是jre的一部分，负责动态将类加载到JVM
+
+
+
+## 类加载器分类
+
++ Bootstrap classloader：加载jre/lib/rt.jar
++ Extension classloader：加载jre/lib/ext/*.jar
++ application classloader：加载classpath上指定的类库
+
+
+
+## 双亲委派机制
+
+双亲委派机制是指当一个类加载器收到一个类加载请求时，该类加载器首先会把请求委派给父类加载器。每个类加载器都是如此，只有在父类加载器在自己的搜索范围内找不到指定类时，子类加载器才会尝试自己去加载。
+
+
+
+## 双亲委派工作流程
+
+1.当Application ClassLoader 收到一个类加载请求时，他首先不会自己去尝试加载这个类，而是将这个请求委派给父类加载器Extension ClassLoader去完成。 
+
+2.当Extension ClassLoader收到一个类加载请求时，他首先也不会自己去尝试加载这个类，而是将请求委派给父类加载器Bootstrap ClassLoader去完成。
+
+3.如果Bootstrap ClassLoader加载失败(在<JAVA_HOME>\lib中未找到所需类)，就会让Extension ClassLoader尝试加载。 
+
+4.如果Extension ClassLoader也加载失败，就会使用Application ClassLoader加载。 
+
+5.如果Application ClassLoader也加载失败，就会使用自定义加载器去尝试加载。
+
+6.如果均加载失败，就会抛出ClassNotFoundException异常。
+
+
+
+## 设计初衷
+
+防止替换系统级别的类
 
 
 
@@ -649,3 +709,15 @@ export JAVA_OPTS="$JAVA_OPTS -Xms5000m -Xmx6000m -XX:PermSize=1024m -XX:MaxPermS
 + -Xmx：最大内存分配
 + -XX:PermSize：JVM启动时初始大小
 + -XX:MaxPermSize：JVM启动后可分配的最大空间
+
+
+
+**spring boot项目带参数启动**
+
+```bash
+java -jar -Dspring.config.location=./application.yml --spring.profiles.active=test --server.prot=8080 
+```
+
++ spring.config.location：指定配置文件的位置
++ spring.profiles.active：指定要使用的配置文件
++ server.port：指定端口

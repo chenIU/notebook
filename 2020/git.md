@@ -92,6 +92,11 @@
 | git rm --cached [file]                                 | 停止追踪某个文件，依赖保留在暂存区             |
 | git commit -am "xxx"                                   | add和commit合并成一步                          |
 | git log branch                                         | 查看某个分支的提交日志                         |
+| git config -e                                          | 打开当前仓库的git配置文件                      |
+| git push -u origin -all                                | 推送所有分支                                   |
+| git push -u origin --tags                              | 推送所有标签                                   |
+| git config --global push.default simple                | simple模式推送（只推送当前分支）               |
+| git config --global push.default matching              | matching模式推送（推送所有关联分支）           |
 
 
 
@@ -120,6 +125,20 @@
 | git push origin :<branch_name>                           | 删除远程分支                                 |
 | git branch -dr <remote_branch>                           | 删除远程分支                                 |
 | git show <branch_name>                                   | 查看某个分支最后一次提交信息                 |
+
+
+
+# remote
+
+| 命令                            | 说明                   |
+| ------------------------------- | ---------------------- |
+| git remote                      | 查看远程仓库名称       |
+| git remote -v                   | 查看远程仓库的连接信息 |
+| git remote rm origin            | 删除远程仓库           |
+| git remote rename origin old    | 重命名远程仓库名称     |
+| git remote add gitee [url]      | 添加一个远程仓库       |
+| git remote origin set-url [url] | 修改远程仓库的连接信息 |
+| git remote add origin [url]     | 添加远程仓库           |
 
 
 
@@ -499,13 +518,9 @@ git fetch origin tag V1.0.0
 
 
 
+**git push -u origin master**
 
-
-
-
-
-
-
+如果当前分支与多个主机存在追踪关系，则可以使用`-u`参数指定一个默认主机，这样就可以在后面不加任何参数使用`git push`
 
 
 

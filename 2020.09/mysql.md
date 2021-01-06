@@ -63,3 +63,11 @@ flush privileges;
 全局：select @@global.transaction_isolation
 ```
 
+
+
+## 数据库索引为什么用B+树而不是hash表
+
++ hash表只能匹配是否相等，不能实现范围查找
++ 当按照索引进行order by的时候，hash值没办法实现排序
++ hash表无法支持部分索引
++ 当数据量很大时候，hash冲突的概率也会很大
