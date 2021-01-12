@@ -1,3 +1,13 @@
+## mysql常用命令
+
+| 命令               | 说明                   |
+| ------------------ | ---------------------- |
+| show databases;    | 查看所有数据库         |
+| show tables;       | 查看某个数据库下所有表 |
+| select database(); | 查看当前使用的数据库   |
+| select user();     | 查看当前登录用户       |
+| select version();  | 查看当前数据库版本     |
+
 **explain**
 
 ![image-20200907103633232](http://cdn.chenjianyin.com/markdown/image-20200907103633232.png)
