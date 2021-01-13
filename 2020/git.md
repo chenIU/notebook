@@ -32,11 +32,6 @@
 | git push -u origin master                              | 第一次推送，且远程仓库是空                     |
 | git remote add origin git仓库地址                      | 将本地和远程git仓库关联                        |
 | git remote show origin                                 | 查看远程信息                                   |
-| git tag                                                | 查看所有的标签                                 |
-| git tag tag_name                                       | 创建标签                                       |
-| git tag -d tag_name                                    | 删除标签                                       |
-| git push origin tag_name                               | 推送某一个标签                                 |
-| git push origin --tags                                 | 一次性推送所有标签                             |
 | git fetch + git merge =git pull                        | 后者可能会出现冲突                             |
 | git fetch origin                                       | 拉取默认分支的内容                             |
 | git config user.name                                   | 查看某项配置                                   |
@@ -94,13 +89,12 @@
 | git log branch                                         | 查看某个分支的提交日志                         |
 | git config -e                                          | 打开当前仓库的git配置文件                      |
 | git push -u origin -all                                | 推送所有分支                                   |
-| git push -u origin --tags                              | 推送所有标签                                   |
 | git config --global push.default simple                | simple模式推送（只推送当前分支）               |
 | git config --global push.default matching              | matching模式推送（推送所有关联分支）           |
 
 
 
-# 分支
+# branch
 
 | 命令                                                     | 说明                                         |
 | -------------------------------------------------------- | -------------------------------------------- |
@@ -125,6 +119,37 @@
 | git push origin :<branch_name>                           | 删除远程分支                                 |
 | git branch -dr <remote_branch>                           | 删除远程分支                                 |
 | git show <branch_name>                                   | 查看某个分支最后一次提交信息                 |
+
+
+
+# tag
+
+| 命令                                     | 说明                         |
+| ---------------------------------------- | ---------------------------- |
+| git tag                                  | 查看所有标签                 |
+| git tag <tag_name>                       | 创建轻量标签                 |
+| git tag -a <tag_name> -m "\<comment\>"   | 创建附注标签                 |
+| git show <tag_name>                      | 查看标签信息                 |
+| git tag -a <tag_name> 9fceb02(commit_id) | 后期在之前的某次提交处打标签 |
+| git push origin <tag_name>               | 推送本地标签到远程           |
+| git push origin --tags                   | 推送本地所有标签到远程       |
+| git tag -d <tag_name>                    | 删除本地标签                 |
+| git push origin :/refs/tags/<tag_name>   | 删除远程标签（方式一）       |
+| git push origin --delete <tag_name>      | 删除远程标签（方式二）       |
+| git checkout <tag_name>                  | 检出标签                     |
+| git checkout -b <branch_name> <tag_name> | 在某个标签处检出一个新分支   |
+
+**检出标签**
+
+如果想查看某个标签所指向的文件，可以使用`git checkout`命令。这样会使仓库处于分离头指针`detached HEAD`的状态，这个状态有些不好的副作用：
+
+在"分离头指针"状态下，如果做了某些更改然后提交它们，标签不会发生变化，但新提交将不属于任何分支，并且无法访问，除非通过确切的提交哈希。因此，如果需要进行更改，比如要修复旧版本中的错误，那么通常需要新建一个分支：
+
+```bash
+git checkout -b version2 v2.0.0
+```
+
+如果在这之后又进行了一次提交，`version2`就会因为这个分支继续向前移动，此时它就会和`v2.0.0`标签稍微有些不同。
 
 
 
