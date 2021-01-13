@@ -114,7 +114,7 @@ docker inspect container_name/id
 **文件传输**
 
 + 宿主机文件传到docker容器中：docker cp 本地文件路径 容器ID/名称:/目标路径
-+ docker容器文件传到宿主机中：docker cp 容器ID/名称:/文件路径 本地路径
++ docker容器文件传到宿主机中：docker cp 容器ID/名称:/文件路径 本地路径  (docker cp ./mysqld.cnf master:/etc/mysql/mysql.conf.d/)
 
 
 
