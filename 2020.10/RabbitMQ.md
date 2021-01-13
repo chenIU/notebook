@@ -106,3 +106,21 @@ rabbitmqctl delete_user guest
 + Topic：通配符模式
 + Header：header模式
 + RPC：远程调用模式
+
+
+
+## Docker安装
+
++ 拉取镜像
+
+  ```bash
+  docker pull rabbitmq:management
+  ```
+
++ 启动容器
+
+  ```bash
+  docker run -dit --name myrabbitmq -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=admin -p 15672:15672 -p 5672:5672 rabbitmq:management
+  ```
+
+  
