@@ -152,3 +152,30 @@ select date_sub(now(),interval xxx TIME.UNIT)
 ```sql
 select timediff('2020-04-27 09:00:00','2020-04-27 08:00:00')
 ```
+
+
+
+## mysqldiff
+
+```bash
+mysqldiff
+
+--server1=root:123456@47.101.129.111:33061 //测试库mysql
+
+--server2=root:123456@47.101.129.111:33062 //正式库mysql
+
+--difftype=sql                             //差异展现形式，用sql语句，方便执行，也可用context在控制台显示
+
+db1:db2                                    //选取要比较的数据库，或者表db1.table1:db2.table2
+
+--force                                    //强行比较，即使发现不一致，也继续比较知道全部比较完成，不会在第一个不一致处停下来
+
+--skip-table-options                       //忽略对engine、charset、自增id之类表选项的比较
+
+--show-reverse                             //两个服务器的变化都要显示
+
+--change-for=server1                       //以server2为参照，寻找server1的变化
+
+\> /root/mysqldata/diff/1.sql              //输出文件位置
+```
+
