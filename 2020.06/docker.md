@@ -1,10 +1,40 @@
 **启动**
 
-> docker run
+> ```
+> docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+> ```
 >
-> + -i 交互式
-> + -t 终端
+> OPTIONS说明：
+>
+> + -i 以交互式运行模式，通常与`-t`同时使用
+> + -t 为容器分配一个伪输入终端，通常与`-i`同时使用
 > + -d 后台运行
+> + -P 随机映射端口
+> + -p 指定端口映射，格式为：`主机(宿主)端口:容器端口`
+> + --name 为容器指定一个名称
+> + --dns 指定容器使用的DNS服务器，默认和宿主一致
+> + -h 指定容器的hostname
+> + -e 设置环境变量
+> + --env-file [] 从指定文件读入环境变量
+> + -m 指定容器使用最大内存值
+> + --net 指定容器的网络连接类型，支持`bridge/host/none/container`四种类型
+> + --link=[] 添加链接到另一容器
+> + --expose=[] 开放一个或者一组端口
+> + --volume/-v：绑定一个卷
+
+
+
+**docker run --rm选项详解**
+
+在Docker容器退出时，默认容器内部的文件系统任然被保留，以方便调试并保留用户数据。
+
+但是，对于foreground容器，由于其只是在开发调试过程中短期运行，用户数据并无保留的必要，因而可以在容器启动时设置`--rm`选项，这样在容器退出时能够自动清理容器内部的文件系统。
+
+显然，`--rm`选项不能和`-d`同时使用，即只能自动清理foreground容器，不能自动清理detached容器。
+
+注意，`--rm`选项也会自动清理容器的匿名data volumes。
+
+所以，执行docker run 命令ddddddddddddddd带`--rm`命令选项，等价于在容器退出后，执行`dodcker rm -v`。
 
 
 
@@ -80,6 +110,12 @@ docker rm -f  container_id/container_name
 
 
 
+**更改容器启动参数**
+
+docker container update --restart=always d72e7e910ab6
+
+
+
 **启动容器(交互方式)**
 
 docker run -i -t <image_name/container_id> /bin/bash
@@ -118,29 +154,6 @@ docker inspect container_name/id
 
 
 
-**docker容器中启动redis**
-
-+ 快速启动
-
-```
-docker run -itd --name docker-redis -p 6379:6379 redis
-```
-
-+ 配置文件启动
-
-```bash
-docker run -p 16379:6379 --name redis -v /usr/local/docker/redis.conf:/etc/redis/redis.conf -v /usr/local/docker/data:/data -d redis redis-server /etc/redis/redis.conf --appendonly yes
-```
-
-+ -p：端口映射
-+ --name：指定容器名称
-+ -v：挂载目录
-+ -d：后台启动
-+ redis-server：以配置文件启动redis
-+ --appendonly yes：开启redis持久化
-
-
-
 # 总结
 
 **容器内安装软件**
@@ -151,6 +164,12 @@ docker run -p 16379:6379 --name redis -v /usr/local/docker/redis.conf:/etc/redis
 > + apt-get install vim
 
 
+
+**Docker服务的启动**
+
++ 启动：systemctl start docker/service docker start
++ 停止：systemctl stop docker/service docker stop
++ 重启：systemctl restart docker/service docker retart
 
 
 
@@ -164,3 +183,87 @@ docker run -p 16379:6379 --name redis -v /usr/local/docker/redis.conf:/etc/redis
 | docker rm \`docker ps -a -q\`  | 删除所有docker容器       |
 | ip a show docker0              | 查看docker0的网络        |
 
+
+
+# 启动脚本
+
+启动phymyadmin
+
+```bash
+docker run -d --name myadmin -e PMA_HOST=47.101.129.111 -e PMA_PORT=33061 -p 8080:80 phpmyadmin
+```
+
+
+
+启动mysql
+
+```bash
+docker run --name mysql -p 3306:3306 --restart=always -e MYSQL_ROOT_PASSWORD=123456 -d mysql
+```
+
+
+
+启动mariadb
+
+```bash
+docker run --name mariadb -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -v /data/mariadb/data:/var/lib/mysql -d mariadb
+```
+
+
+
+启动consul
+
+```bash
+docker run --name consul -d -p 8500:8500 -p 8300:8300 -p 8301:8301 -p 8302:8302 -p 8600:8600 consul agent -server -bootstrap-expect=1 -ui -bind=0.0.0.0 -client=0.0.0.0
+```
+
+参数如下：
+
+> -net = host docker参数，使得docker容器越过了netnamespace的隔离，免去手动指定端口映射的步骤
+>
+> -server consul支持以server或client的模式运行，server是服务发现模块的核心，client主要用于转发请求
+>
+> -advertise 将本机私有IP传递到consul
+>
+> -bootstrap-expect 指定consul将等待几个节点连通，形成一个完整的集群
+>
+> -retry-join 指定要加入的consul节点地址，失败会重试，可多次指定不同的地址
+>
+> -client consul绑定在哪个client地址上，这个地址提供HTTP、DNS、RPC等服务，默认是127.0.0.1
+>
+> -bind 改地址用来在结群内部的通讯，集群内的所有节点到该地址都必须是可达的，默认是0.0.0.0
+>
+> -allow_state 设置为true，表明可以从consul集群的任一server节点获取DNS信息，false则表明每次请求都会经过consul server leader
+>
+> --name Docker容器的名称
+>
+> -client 0.0.0.0表明任何地址都可以访问
+>
+> -ui 提供图形化界面
+
+
+
+启动redis
+
++ 快速启动
+
+```
+docker run -itd --name docker-redis -p 6379:6379 redis
+```
+
+`--restart=always`：docker服务重启，容器自动启动
+
+
+
++ 配置文件启动
+
+```bash
+docker run -p 16379:6379 --name redis -v /usr/local/docker/redis.conf:/etc/redis/redis.conf -v /usr/local/docker/data:/data -d redis redis-server /etc/redis/redis.conf --appendonly yes
+```
+
++ -p：端口映射
++ --name：指定容器名称
++ -v：挂载目录
++ -d：后台启动
++ redis-server：以配置文件启动redis
++ --appendonly yes：开启redis持久化
