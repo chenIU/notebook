@@ -83,7 +83,7 @@
 | git bisect start start end                             | 二分法查找代码错误                             |
 | gitk                                                   | 图形化展示git提交历史                          |
 | git init [project_name]                                | 初始化一个git仓库                              |
-| git config -e --global                                 | 编辑git配置文件                                |
+| git config -e [--global]                               | 编辑git配置文件(本仓库/全局)                   |
 | git rm --cached [file]                                 | 停止追踪某个文件，依赖保留在暂存区             |
 | git commit -am "xxx"                                   | add和commit合并成一步                          |
 | git log branch                                         | 查看某个分支的提交日志                         |
@@ -91,6 +91,11 @@
 | git push -u origin -all                                | 推送所有分支                                   |
 | git config --global push.default simple                | simple模式推送（只推送当前分支）               |
 | git config --global push.default matching              | matching模式推送（推送所有关联分支）           |
+| git blame <file\>                                      | 指定文件在什么时候修改过                       |
+| git reflog                                             | 查看当前分支最近几次提交                       |
+| git fetch <remote\>                                    | 下载远程仓库的所有变动                         |
+| git push <remote\> --all                               | 推送所有分支到远程仓库                         |
+| git show HEAD                                          | 显示HEAD的提交日志                             |
 
 
 
@@ -102,16 +107,16 @@
 | git branch -r                                            | 列出所有的远程分支                           |
 | git branch -a                                            | 列出所有的分支                               |
 | git branch <branch_name>                                 | 新建分支，但依然停留在当前分支               |
-| git branch -b <branch_name>                              | 新建分支，并切换到该分支                     |
+| git branch `-b` <branch_name>                            | 新建分支，并切换到该分支                     |
 | git branch -b <local_branch> <remote_branch>             | 检出远程分支                                 |
 | git branch <branch_name> <commit_id>                     | 新建一个分支，并指向某次commit               |
 | git branch --track <local_branch> <remote_branch>        | 新建一个分支，并与执行的远程分支建立追踪关系 |
 | git checkout <branch_name>                               | 切换到执行分支，并更新工作区                 |
-| git checkout -                                           | 切换到上一个分支                             |
+| `git checkout -`                                         | 切换到上一个分支                             |
 | git fetch origin <branch_name>:<branch_name>             | 本地创建分支并拉取                           |
 | git branch --set-upstream <local_branch> <remote_branch> | 将本地分支和远程分支建立追踪关系             |
 | git merge <branch_name>                                  | 合并分支到当前分支                           |
-| git cherry-pick <commit_id>                              | 选择一个commit，合并到当前分支               |
+| git cherry-pick <commit\>                                | 选择一个commit，合并到当前分支               |
 | git push origin <origin_name>                            | 将本地分支推送到远程                         |
 | git branch -d <branch_name>                              | 删除分支                                     |
 | git branch -D <branch_name>                              | 强制删除分支                                 |
@@ -119,6 +124,8 @@
 | git push origin :<branch_name>                           | 删除远程分支                                 |
 | git branch -dr <remote_branch>                           | 删除远程分支                                 |
 | git show <branch_name>                                   | 查看某个分支最后一次提交信息                 |
+| git checkout --orphan <branch_name\>                     | 新建一个独立的分支(不包括之前的提交信息)     |
+| git symbolic-ref HEAD refs/heads/gh-pages                | gh-pages多页面                               |
 
 
 
@@ -155,15 +162,16 @@ git checkout -b version2 v2.0.0
 
 # remote
 
-| 命令                            | 说明                   |
-| ------------------------------- | ---------------------- |
-| git remote                      | 查看远程仓库名称       |
-| git remote -v                   | 查看远程仓库的连接信息 |
-| git remote rm origin            | 删除远程仓库           |
-| git remote rename origin old    | 重命名远程仓库名称     |
-| git remote add gitee [url]      | 添加一个远程仓库       |
-| git remote origin set-url [url] | 修改远程仓库的连接信息 |
-| git remote add origin [url]     | 添加远程仓库           |
+| 命令                               | 说明                   |
+| ---------------------------------- | ---------------------- |
+| git remote                         | 查看远程仓库名称       |
+| git remote -v                      | 查看远程仓库的连接信息 |
+| git remote rm origin               | 删除远程仓库           |
+| git remote rename origin old       | 重命名远程仓库名称     |
+| git remote add <shortname\> <url\> | 添加一个远程仓库       |
+| git remote origin set-url <url\>   | 修改远程仓库的连接信息 |
+| git remote add origin <url\>       | 添加远程仓库           |
+| git remote show <remote\>          | 显示某个远程仓库的信息 |
 
 
 
@@ -548,4 +556,48 @@ git fetch origin tag V1.0.0
 如果当前分支与多个主机存在追踪关系，则可以使用`-u`参数指定一个默认主机，这样就可以在后面不加任何参数使用`git push`
 
 
+
+## 发布项目到gh-pages分支
+
+1.进入build文件夹
+
+```bash
+cd build
+```
+
+2.git初始化
+
+```bash
+git init
+```
+
+3.创建gh-pages分支
+
+```bash
+git checkout --orphan gh-pages
+```
+
+4.将文件添加到暂存区
+
+```bash
+git add .
+```
+
+5.添加提交信息
+
+```bash
+git commit -m "init"
+```
+
+6.设置远程仓库地址
+
+```bash
+git remote add origin git@github.com:chenIU/spring-boot-master.git
+```
+
+7.推送项目到gh-pages分支
+
+```bash
+git push origin gh-pages
+```
 
