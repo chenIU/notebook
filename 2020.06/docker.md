@@ -198,7 +198,7 @@ docker run -d --name myadmin -e PMA_HOST=47.101.129.111 -e PMA_PORT=33061 -p 808
 启动mysql
 
 ```bash
-docker run --name mysql -p 3306:3306 --restart=always -e MYSQL_ROOT_PASSWORD=123456 -d mysql
+docker run --name mysql -p 3306:3306 --restart=always -e MYSQL_ROOT_PASSWORD=123456 -d mysql:latest
 ```
 
 
@@ -247,13 +247,11 @@ docker run --name consul -d -p 8500:8500 -p 8300:8300 -p 8301:8301 -p 8302:8302 
 
 + 快速启动
 
-```
+```bash
 docker run -itd --name docker-redis -p 6379:6379 redis
 ```
 
 `--restart=always`：docker服务重启，容器自动启动
-
-
 
 + 配置文件启动
 
@@ -267,3 +265,14 @@ docker run -p 16379:6379 --name redis -v /usr/local/docker/redis.conf:/etc/redis
 + -d：后台启动
 + redis-server：以配置文件启动redis
 + --appendonly yes：开启redis持久化
+
+`-v  /usr/local/docker/data:/data`：指定数据文件映射
+
+
+
+启动portainer
+
+```bash
+docker run -d -p 9000:9000 --restart=always -v /var/run/docker.sock:/var/run/docker.sock --name prtainer portainer/portainer
+```
+
