@@ -40,93 +40,133 @@
 
 **查看**
 
+```bash
 docker ps -a
+```
 
 
 
 **停止**
 
+```bash
 docker stop container_id/container_name
+```
 
 
 
 **重启**
 
+```bash
 docker restart container_id/container_name
+```
 
 
 
 **删除**
 
+```bash
 docker rm -f container_id/container_name
+```
 
 
 
 **端口**
 
+```bash
 docker port container_id/container_name
+```
 
 
 
 **日志**
 
+```bash
 docker logs container_id/container_name
+```
 
 
 
 **进程**
 
+```bash
 docker top container_id/container_name
+```
 
 
 
 **检查**
 
+```bash
 docker inspect container_id/container_name
+```
 
 
 
 **导出**
 
+```bash
 docker export container_id/container_name > xxx
+```
 
 
 
 **导入**
 
+```bash
 cat exported_container| docker import - container_name
+```
+
+
+
+**构建**
+
+```bash
+docker build -t [container_name] dir
+```
 
 
 
 **删除容器**
 
+```bash
 docker rmi image_id/image_name
+```
 
 
 
 **删除启动过的容器**
 
+```bash
 docker rm -f  container_id/container_name
+```
 
 
 
 **更改容器启动参数**
 
+```bash
 docker container update --restart=always d72e7e910ab6
+```
 
 
 
 **启动容器(交互方式)**
 
+```bash
 docker run -i -t <image_name/container_id> /bin/bash
+```
 
 
 
 **启动容器(后台)**
 
+```bash
 docker run -d -it image_name
+```
 
+```bash
 docker run -d -p 16379:6379 --name redis redis:latest
+```
 
 + p：映射端口
 + --name：给启动的容器起名称
@@ -135,22 +175,37 @@ docker run -d -p 16379:6379 --name redis redis:latest
 
 **停止容器**
 
+```sh
 docker stop container_id/container_name
+```
 
 
 
 **查看端口映射**
 
+```sh
 docker port container_name/id
+```
 
+```sh
 docker inspect container_name/id
+```
 
 
 
 **文件传输**
 
-+ 宿主机文件传到docker容器中：docker cp 本地文件路径 容器ID/名称:/目标路径
-+ docker容器文件传到宿主机中：docker cp 容器ID/名称:/文件路径 本地路径  (docker cp ./mysqld.cnf master:/etc/mysql/mysql.conf.d/)
++ 宿主机文件传到docker容器中：
+
+  ```bash
+  docker cp 本地文件路径 容器ID/名称:/目标路径
+  ```
+
++ docker容器文件传到宿主机中：
+
+  ```bash
+  docker cp 容器ID/名称:/文件路径 本地路径  (docker cp ./mysqld.cnf master:/etc/mysql/mysql.conf.d/)
+  ```
 
 
 
