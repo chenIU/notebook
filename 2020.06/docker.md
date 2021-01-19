@@ -331,3 +331,11 @@ docker run -p 16379:6379 --name redis -v /usr/local/docker/redis.conf:/etc/redis
 docker run -d -p 9000:9000 --restart=always -v /var/run/docker.sock:/var/run/docker.sock --name prtainer portainer/portainer
 ```
 
+
+
+启动filebrowser
+
+```sh
+docker run --name filebrowser -d -v /root/filebrowser/sites/root:/srv -v /root/filebrowser/filebrowserconfig.json:/etc/config.json -v /root/filebrowser/database.db:/etc/database.db -p 18080:80 filebrowser/filebrowser
+```
+
