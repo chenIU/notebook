@@ -101,3 +101,14 @@ ln -s source target：创建软链接
 
 
 **NFS**：网络文件系统 network file system
+
+
+
+**netstat**
+
++ `-a`：显示所有选项，默认不显示`LISTEN`相关
++ `-t`：仅显示tcp相关选项
++ `-u`：仅显示udp相关选项
++ `-n`：显示ip地址，而不是域名
++ `-l`：仅列出处于`LISTEN`状态服务状态
++ `-p`：显示相关链接的程序名
