@@ -112,3 +112,11 @@ ln -s source target：创建软链接
 + `-n`：显示ip地址，而不是域名
 + `-l`：仅列出处于`LISTEN`状态服务状态
 + `-p`：显示相关链接的程序名
+
+
+
+
+
+## SHELL
+
+[-z STRING] : "STRING"的长度为0则为真
