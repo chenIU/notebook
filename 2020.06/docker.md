@@ -201,13 +201,27 @@ docker inspect container_name/id
   docker cp 本地文件路径 容器ID/名称:/目标路径
   ```
 
+  实例：
+
+  ```sh
+  docker cp /docker/httpd/htdocs/index.html 22e:/usr/local/apache2/htdocs/index.html
+  ```
+
+  
+
 + docker容器文件传到宿主机中：
 
   ```bash
   docker cp 容器ID/名称:/文件路径 本地路径  (docker cp ./mysqld.cnf master:/etc/mysql/mysql.conf.d/)
   ```
-
-
+  
+  实例：
+  
+  ```sh
+  docker cp 22e43c9d5b9a:/usr/local/apache2/htdocs/index.html  /docker/httpd/htdocs/index.html
+  ```
+  
+  
 
 # 总结
 
