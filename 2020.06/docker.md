@@ -360,3 +360,12 @@ docker run --name filebrowser -d -v /root/filebrowser/sites/root:/srv -v /root/f
 ```sh
 docker run --name rethinkdb -p 8080:8080 -p28015:28015 -p29015:29015 -e /data/docker/rethinkdb:/data -d rethinkdb
 ```
+
+
+
+启动emqx
+
+```sh
+docker run -d --name emqx -p 1883:1883 -p 8083:8083 -p 8883:8883 -p 8084:8084 -p 18083:18083 emqx/emqx
+```
+
