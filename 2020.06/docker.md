@@ -385,3 +385,12 @@ docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=
 docker run --name couchdb -d -p 15984:5984 -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=123456 couchdb
 ```
 
+
+
+## nexus
+
+```sh
+mkdir -p /data/nexus & chown -R 200 /data/nexus
+docker run --name nexus -d -p 8081:8081 -v /data/nexus:/nexus-data sonatype/nexus3
+```
+
