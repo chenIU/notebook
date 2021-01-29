@@ -377,3 +377,11 @@ docker run -d --name emqx -p 1883:1883 -p 8083:8083 -p 8883:8883 -p 8084:8084 -p
 docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch
 ```
 
+
+
+## couchdb
+
+```sh
+docker run --name couchdb -d -p 15984:5984 -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=123456 couchdb
+```
+
