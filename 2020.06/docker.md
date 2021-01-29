@@ -256,7 +256,7 @@ docker inspect container_name/id
 
 # 启动脚本
 
-启动phymyadmin
+## phymyadmin
 
 ```bash
 docker run -d --name myadmin -e PMA_HOST=47.101.129.111 -e PMA_PORT=33061 -p 8080:80 phpmyadmin
@@ -264,7 +264,7 @@ docker run -d --name myadmin -e PMA_HOST=47.101.129.111 -e PMA_PORT=33061 -p 808
 
 
 
-启动mysql
+## mysql
 
 ```bash
 docker run --name mysql -p 3306:3306 --restart=always -e MYSQL_ROOT_PASSWORD=123456 -d mysql:latest
@@ -272,7 +272,7 @@ docker run --name mysql -p 3306:3306 --restart=always -e MYSQL_ROOT_PASSWORD=123
 
 
 
-启动mariadb
+## mariadb
 
 ```bash
 docker run --name mariadb -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -v /data/mariadb/data:/var/lib/mysql -d mariadb
@@ -280,7 +280,7 @@ docker run --name mariadb -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -v /data/ma
 
 
 
-启动consul
+## consul
 
 ```bash
 docker run --name consul -d -p 8500:8500 -p 8300:8300 -p 8301:8301 -p 8302:8302 -p 8600:8600 consul agent -server -bootstrap-expect=1 -ui -bind=0.0.0.0 -client=0.0.0.0
@@ -312,7 +312,7 @@ docker run --name consul -d -p 8500:8500 -p 8300:8300 -p 8301:8301 -p 8302:8302 
 
 
 
-启动redis
+## redis
 
 + 快速启动
 
@@ -339,7 +339,7 @@ docker run -p 16379:6379 --name redis -v /usr/local/docker/redis.conf:/etc/redis
 
 
 
-启动portainer
+## portainer
 
 ```bash
 docker run -d -p 9000:9000 --restart=always -v /var/run/docker.sock:/var/run/docker.sock --name prtainer portainer/portainer
@@ -347,7 +347,7 @@ docker run -d -p 9000:9000 --restart=always -v /var/run/docker.sock:/var/run/doc
 
 
 
-启动filebrowser
+## filebrowser
 
 ```sh
 docker run --name filebrowser -d -v /root/filebrowser/sites/root:/srv -v /root/filebrowser/filebrowserconfig.json:/etc/config.json -v /root/filebrowser/database.db:/etc/database.db -p 18080:80 filebrowser/filebrowser
@@ -355,7 +355,7 @@ docker run --name filebrowser -d -v /root/filebrowser/sites/root:/srv -v /root/f
 
 
 
-启动rethinkdb
+## rethinkdb
 
 ```sh
 docker run --name rethinkdb -p 8080:8080 -p28015:28015 -p29015:29015 -e /data/docker/rethinkdb:/data -d rethinkdb
@@ -363,9 +363,17 @@ docker run --name rethinkdb -p 8080:8080 -p28015:28015 -p29015:29015 -e /data/do
 
 
 
-启动emqx
+## emqx
 
 ```sh
 docker run -d --name emqx -p 1883:1883 -p 8083:8083 -p 8883:8883 -p 8084:8084 -p 18083:18083 emqx/emqx
+```
+
+
+
+## elasticsearch
+
+```sh
+docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch
 ```
 
