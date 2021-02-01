@@ -1,4 +1,4 @@
-**启动**
+# run
 
 > ```
 > docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
@@ -38,7 +38,111 @@
 
 
 
-**数据卷**
+# command
+
+## 查看
+
+```bash
+docker ps 		//查看正在运行的容器
+docker ps -a    //查看所有启动过的容器
+docker ps -l    //查看最新启动的容器
+docker ps -n=2  //查看最新创建的n个容器
+```
+
+
+
+## 停止
+
+```bash
+docker stop container_id/container_name
+```
+
+
+
+## 重启
+
+```bash
+docker restart container_id/container_name
+```
+
+根据docker官网的解释，docker的重启策略可以分为四种：
+
+| Policy                   | Result                                                       |
+| ------------------------ | ------------------------------------------------------------ |
+| no                       | 不自动重启容器，默认如此                                     |
+| on-failure:[max-retries] | 在退出状态为非0时才会重启（非正常退出）                      |
+| always                   | 始终重启容器，当docker守护进程重新启动时，无论容器当时的状态如何，都会重启容器 |
+| unless-stopped           | 始终重启容器，但当docker守护进程启动时，如果容器已经停止运行，则不会重新启动它 |
+
+
+
+## 删除
+
+```bash
+docker rm -f container_id/container_name //-f参数表示删除正在运行的容器
+docker rm ${docker ps -a -q} //删除所有容器
+```
+
+
+
+## 端口
+
+```bash
+docker port container_id/container_name
+```
+
+
+
+## 日志
+
+```bash
+docker logs container_id/container_name
+docker logs -f --tail = 3 xxx
+```
+
+
+
+## 进程
+
+```bash
+docker top container_id/container_name
+```
+
+
+
+## 检查
+
+```bash
+docker inspect container_id/container_name
+```
+
+
+
+## 导出
+
+```bash
+docker export container_id/container_name > xxx
+```
+
+
+
+## 导入
+
+```bash
+cat exported_container| docker import - container_name
+```
+
+
+
+## 构建
+
+```bash
+docker build -t [container_name] dir
+```
+
+
+
+## 数据卷
 
 查看所有数据卷：
 
@@ -65,96 +169,7 @@ docker volume purge //批量删除
 
 
 
-**查看**
-
-```bash
-docker ps -a
-```
-
-
-
-**停止**
-
-```bash
-docker stop container_id/container_name
-```
-
-
-
-**重启**
-
-```bash
-docker restart container_id/container_name
-```
-
-
-
-**删除**
-
-```bash
-docker rm -f container_id/container_name
-```
-
-
-
-**端口**
-
-```bash
-docker port container_id/container_name
-```
-
-
-
-**日志**
-
-```bash
-docker logs container_id/container_name
-docker logs -f --tail = 3 xxx
-```
-
-
-
-**进程**
-
-```bash
-docker top container_id/container_name
-```
-
-
-
-**检查**
-
-```bash
-docker inspect container_id/container_name
-```
-
-
-
-**导出**
-
-```bash
-docker export container_id/container_name > xxx
-```
-
-
-
-**导入**
-
-```bash
-cat exported_container| docker import - container_name
-```
-
-
-
-**构建**
-
-```bash
-docker build -t [container_name] dir
-```
-
-
-
-**删除容器**
+## 删除镜像
 
 ```bash
 docker rmi image_id/image_name
@@ -162,15 +177,7 @@ docker rmi image_id/image_name
 
 
 
-**删除启动过的容器**
-
-```bash
-docker rm -f  container_id/container_name
-```
-
-
-
-**更改容器启动参数**
+## 更改参数
 
 ```bash
 docker container update --restart=always d72e7e910ab6
@@ -178,50 +185,7 @@ docker container update --restart=always d72e7e910ab6
 
 
 
-**启动容器(交互方式)**
-
-```bash
-docker run -i -t <image_name/container_id> /bin/bash
-```
-
-
-
-**启动容器(后台)**
-
-```bash
-docker run -d -it image_name
-```
-
-```bash
-docker run -d -p 16379:6379 --name redis redis:latest
-```
-
-+ p：映射端口
-+ --name：给启动的容器起名称
-
-
-
-**停止容器**
-
-```sh
-docker stop container_id/container_name
-```
-
-
-
-**查看端口映射**
-
-```sh
-docker port container_name/id
-```
-
-```sh
-docker inspect container_name/id
-```
-
-
-
-**文件传输**
+## 文件传输
 
 + 宿主机文件传到docker容器中：
 
@@ -283,6 +247,14 @@ docker inspect container_name/id
 
 
 # 启动脚本
+
+## nginx
+
+```sh
+docker run --name nginx -itd -p 80:80 -v ${pwd}/mnt/nginx:/usr/share/nginx/html nginx
+```
+
+
 
 ## phymyadmin
 
