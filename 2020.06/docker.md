@@ -251,7 +251,10 @@ docker container update --restart=always d72e7e910ab6
 ## nginx
 
 ```sh
-docker run --name nginx -itd -p 80:80 -v ${pwd}/mnt/nginx:/usr/share/nginx/html nginx
+docker run --name nginx -itd -p 80:80 
+-v ${pwd}/mnt/nginx:/usr/share/nginx/html
+-v ${pwd}/mnt/conf/nginx.conf:/etc/nginx/nginx.conf
+nginx
 ```
 
 
