@@ -38,6 +38,33 @@
 
 
 
+**数据卷**
+
+查看所有数据卷：
+
+```sh
+docker volume ls
+```
+
+
+
+查看数据卷详情：
+
+```sh
+docker volume inspect xxx
+```
+
+
+
+删除数据卷
+
+```sh
+docker volume rm; //单个删除
+docker volume purge //批量删除
+```
+
+
+
 **查看**
 
 ```bash
