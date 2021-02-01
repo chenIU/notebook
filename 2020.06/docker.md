@@ -404,3 +404,11 @@ mkdir -p /data/nexus & chown -R 200 /data/nexus
 docker run --name nexus -d -p 8081:8081 -v /data/nexus:/nexus-data sonatype/nexus3
 ```
 
+
+
+## tomcat
+
+```sh
+docker run --name tomcat -d -p 8090:8080 -v ${pwd}/mnt/tomcat/webapps:/usr/local/tomcat/webapps -v ${pwd}/mnt/tomcat/logs:/usr/local/tomcat/logs tomcat
+```
+
