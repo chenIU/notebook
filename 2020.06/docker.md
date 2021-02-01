@@ -109,6 +109,7 @@ docker port container_id/container_name
 
 ```bash
 docker logs container_id/container_name
+docker logs -f --tail = 3 xxx
 ```
 
 
