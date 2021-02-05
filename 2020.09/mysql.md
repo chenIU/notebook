@@ -199,3 +199,20 @@ yum方式安装的mysql配置文件的默认位置：`/etc/my.cnf`
 + 对索引字段使用计算操作、函数操作。
 + 组合索引时，不是使用第一列索引，索引失效。
 + 如果mysql觉得全表扫描更快时（数据少）。
+
+
+
+## limit
+
+**limit n**
+
+```sql
+select * from t_user limit 10; --查询前10行,limit n =  limit 0,n
+```
+
+**limit m,n**
+
+```sql
+select * from t_user limit 10,20; --查询10到30行的数据,limit后一个参数表示行数
+```
+
