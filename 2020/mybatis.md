@@ -580,3 +580,20 @@ SELECT CONCAT("-", "江西省", "赣州市", "于都县");
 > + 建表时，字段名称建议用"_"分隔多个单词，比如:AWB_NO、REC_ID…，这样生成的entity，属性名称就会变成漂亮的驼峰命名。
 > + oracle中，数值形的字段，如果指定精度，比如Number(16,2)，默认生成entity属性是BigDecimal型 ，如果不指定精度，比如:Number(8)，指默认生成的是Long型。
 > + oracle中的nvarchar/nvarchar2，mybatis-generator会识别成Object型，建议不要用nvarchar2，改用varchar2。
+
+
+
+# 插件
+
+## 一个接口
+
+`Interceptor`
+
+
+
+## 四大对象
+
++ `Executor`
++ `ParameterHandler`
++ `ResultSetHandler`
++ `StatmentHandler`
