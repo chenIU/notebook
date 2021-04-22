@@ -91,3 +91,12 @@ KEY和ARGV之间(age , 1)一定要有空格，否则会导致执行失败。
 
 
 `cat delete.lua | redis-cli -p 16379 -a 123456 script load --pipe：将lua脚本缓存到redis中`
+
+
+
+**释放锁脚本**
+
+```lua
+if redis.call('get',KEYS[1]) == ARGV[1] then return redis.call('del',KEYS[1]) else return 0 end)
+```
+
