@@ -431,3 +431,10 @@ docker run -d --name minio -p 9000:9000 minio/minio server /data
 docker run -d --name showdoc --user=root --privileged=true -p 5000:80 -v /showdoc_data/html:/var/www/html/ star7th/showdoc
 ```
 
+
+
+# xxl-job
+
+```sh
+docker run -itd -e PARAMS='--spring.datasource.url=jdbc:mysql://[ip]:3306/xxl_job --spring.datasource.username=[username] --spring.datasource.password=[password]' --privileged=true -p 8888:8080 -v /tmp/xxl-job-admin:/data/applogs --name xxl-job-admin xuxueli/xxl-job-admin:2.3.0
+```
