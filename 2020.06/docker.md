@@ -415,3 +415,19 @@ docker run --name nexus -d -p 8081:8081 -v /data/nexus:/nexus-data sonatype/nexu
 docker run --name tomcat -d -p 8090:8080 -v ${pwd}/mnt/tomcat/webapps:/usr/local/tomcat/webapps -v ${pwd}/mnt/tomcat/logs:/usr/local/tomcat/logs tomcat
 ```
 
+
+
+## MinIO
+
+```sh
+docker run -d --name minio -p 9000:9000 minio/minio server /data
+```
+
+
+
+## showdoc
+
+```sh
+docker run -d --name showdoc --user=root --privileged=true -p 5000:80 -v /showdoc_data/html:/var/www/html/ star7th/showdoc
+```
+
