@@ -611,6 +611,10 @@ git push origin gh-pages
 git commit --amend：撤销上一次操作、并将暂存区文件重新提交
 git checkout -- <file>：拉取暂存区文件，并将其替换成工作区文件
 git reset HEAD -- <file>：拉取最近一次提交到版本库的代码到暂存区
+
+--常用撤销操作
+git reset HEAD ：将当前暂存区中所有内容还原
+git checkout . ：将当前工作区中所有内容还原
 ```
 
 
