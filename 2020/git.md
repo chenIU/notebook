@@ -305,6 +305,7 @@ git reset --hard origin/master
 * git status无法识别新建文件夹时，可以在文件夹中添加文件再执行git status命令
 * git仅跟踪文件的变动，不跟踪目录
 * 本地分支的指针HEAD可以小写
+* 使用github的提交统计功能时，需要保证用户名或邮箱至少有一个相等
 
 
 
