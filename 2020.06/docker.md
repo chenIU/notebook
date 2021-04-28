@@ -244,6 +244,8 @@ docker container update --restart=always d72e7e910ab6
 | docker rm \`docker ps -a -q\`  | 删除所有docker容器       |
 | ip a show docker0              | 查看docker0的网络        |
 
+`docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword`：不进入docker容器内部查看文件内容
+
 
 
 # 启动脚本
