@@ -294,6 +294,15 @@ git reset --hard origin/master
 
 
 
+## 8.删除中间的某次提交
+
++ 找到需要删除提交的上一次提交的commit_id
++ git rebase -i commit_id
++ 进入vi模式，将需要删除提交记录前面的单词(pick)改为(drop或者d)，保存退出
++ git push origin head --force
+
+
+
 # 注意事项
 
 * 在当前分支上不能删除本分支
@@ -620,5 +629,5 @@ git checkout . ：将当前工作区中所有内容还原
 
 
 
-
+`git pull --rebase origin dev`：拉取远程分支内容并跟随远程变基
 
