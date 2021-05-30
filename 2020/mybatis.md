@@ -275,7 +275,7 @@ mapper.java
 
 List<User> selectByIdSet(List idList);
 
-如果参数的类型是List，则在使用时，collection的属性值必须指定为list
+如果参数的类型是List，则在使用时，collection的属性值必须指定为list，和参数名称无关
 
 <select id="selectByIdSet" resultMap="BaseResultMap">
     select 
@@ -287,13 +287,17 @@ List<User> selectByIdSet(List idList);
     </foreach>
 </select>
 
+
+
+
+
 ### 2.2 Array
 
 mapper.java
 
 List<User> selectByIdSet(String[] idList);
 
-如果参数类型时Array，则在使用时，collection的属性值必须指定为array
+如果参数类型时Array，则在使用时，collection的属性值必须指定为array，和参数名称无关
 
 <select id="selectByIdSet" resultMap="BaseResultMap">
     select 
@@ -325,6 +329,8 @@ List<User> selectByIdSet(@Param("name")String name,@Param("ids")String[] idList)
 
 
 ### 3.2 map方式
+
+`map`传参，取值时使用`map`的`key`
 
 Map<String,Object> param = new HashMap<>();
 
