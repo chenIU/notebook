@@ -624,7 +624,7 @@ git reset HEAD -- <file>：拉取最近一次提交到版本库的代码到暂�
 
 --常用撤销操作
 git reset HEAD ：将当前暂存区中所有内容还原
-git checkout . ：将当前工作区中所有内容还原
+git checkout . ：将当前工作区中所有内容还原（只能用于还原已存在文件的内容修改）
 ```
 
 
