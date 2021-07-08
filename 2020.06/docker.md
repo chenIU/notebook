@@ -89,6 +89,7 @@ docker rm ${docker ps -a -q} //删除所有容器
 
 ```bash
 docker port container_id/container_name
+# host:container (主机端口映射容器端口)
 ```
 
 
@@ -447,5 +448,14 @@ docker run -itd -e PARAMS='--spring.datasource.url=jdbc:mysql://[ip]:3306/xxl_jo
 
 ```sh
 docker run -d --name jenkins -p 18080:8080 -p 50000:50000 -v /data/jenkins_home:/var/jenkins_home jenkinszh/jenkins-zh
+```
+
+
+
+## flowable
+
+```sh
+docker run -d --name flowable -p 19001:8080 flowable/all-in-one
+# 默认用户名和密码：admin/test
 ```
 
