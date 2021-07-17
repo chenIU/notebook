@@ -39,7 +39,7 @@ RUN ["可执行文件","参数1","参数2"]
 #RUN ["./test.php","dev","offline"] 等价于 RUN ./test.php dev offline
 ```
 
-**注意**：Dockerfiel的指令每执行一次都会在docker上新建一层。所以过多无意义的曾，会造成镜像过大。例如：
+**注意**：Dockerfiel的指令每执行一次都会在docker上新建一层。所以过多无意义的层，会造成镜像过大。例如：
 
 ```bash
 FROM centos
@@ -264,7 +264,7 @@ EXPOSE <端口1> [<端口2>...]
 
 指定工作目录。用WORKDIR指定的工作目录，会在构建镜像每一层中都存在。（WORKDIR指定的工作目录，必须提前创建好）
 
-docker build构建镜像过程中，每一个RUN命令都是新建的一层。只有通过WORKDIR创建的目录才会一致存在。
+docker build构建镜像过程中，每一个RUN命令都是新建的一层。只有通过WORKDIR创建的目录才会一直存在。
 
 格式：
 
