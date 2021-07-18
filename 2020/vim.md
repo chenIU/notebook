@@ -76,3 +76,14 @@ y：复制选中内容到0号寄存器
 0：回到行首
 
 $：回到行尾
+
+
+
+**持久化redo**
+
+```sh
+"在vimrc中加入
+set undofile
+set undodir=~/.vim/undodir
+```
+
