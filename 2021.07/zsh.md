@@ -8,6 +8,9 @@
 sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
++ 升级zsh：`upgrade_oh_my_zh` 或 `omz_update`
++ 卸载zsh：`uninstall_oh_my_zsh`
+
 
 
 ## 安装插件
