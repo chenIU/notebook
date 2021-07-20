@@ -25,3 +25,9 @@
 | ctrl+b :                                | 光标切换到上一个窗格     |
 | ctrl+b o                                | 光标切换到下一个窗格     |
 
+
+
+`tmux -V`：查看tmux版本
+
+`tmux kill-server`：终止所有tmux会话
+
