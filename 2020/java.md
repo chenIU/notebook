@@ -724,4 +724,4 @@ java -jar -Dspring.config.location=./application.yml --spring.profiles.active=te
 
 + spring.config.location：指定配置文件的位置
 + spring.profiles.active：指定要使用的配置文件
-+ server.port：指定端口
++ server.port：指定端口（**=两边不能有空格**）
