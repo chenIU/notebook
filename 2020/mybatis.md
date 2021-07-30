@@ -607,3 +607,13 @@ SELECT CONCAT("-", "江西省", "赣州市", "于都县");
 + `ParameterHandler`
 + `ResultSetHandler`
 + `StatmentHandler`
+
+
+
+**插入时返回主键**
+
+```sql
+<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+	SELECT LAST_INSERT_ID() AS id
+</selectKey>
+```
