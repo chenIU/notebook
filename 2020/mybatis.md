@@ -610,10 +610,61 @@ SELECT CONCAT("-", "江西省", "赣州市", "于都县");
 
 
 
-**插入时返回主键**
+# 主键
+
+**1. 自增主键情况下插入数据获取自增主键值**
+
+要求主键必须是自增的
 
 ```sql
-<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
-	SELECT LAST_INSERT_ID() AS id
-</selectKey>
+<insert id = "insert" useGeneratedKeys = "true" keyProperty = "id">
+	SQL语句
+<insert>
 ```
+
+`useGeneratedKeys` //是否返回自增主键
+
+`keyProperty` // 将属性赋给哪个值，这个值是`参数`中的
+
+
+
+**2. 主键非自增情况下获取主键值**
+
+使用`selectKey`实现，一个insert块中只能有一个selectKey
+
+
+
+`after`示例，查询最后一次添加的主键
+
+```sql
+<insert id = "insertEmp">
+
+    <selectKey resultType = "integer" order = "AFTER" keyProperty = "eid" >
+    
+            select last_insert_id()    //查询最后一次添加的主键,mysql函数
+
+    </selectKey>
+
+    insert into dept(id,deptname) values(#{id},#{deptname})
+
+</insert>
+```
+
+
+
+`before`示例，如果id不是自增，希望在insert之前获取MySQL的UUID作为表主键
+
+```sql
+<insert id = "insertDept">
+
+    <selectKey resultType = "string" order = "BEFORE" keyProperty = "id">
+    
+        select uuid() as id
+
+    </selectKey>
+
+    insert into dept(id,name) values(#{id},#{name})
+
+</insert>
+```
+
