@@ -216,3 +216,51 @@ select * from t_user limit 10; --查询前10行,limit n =  limit 0,n
 select * from t_user limit 10,20; --查询10到30行的数据,limit后一个参数表示行数
 ```
 
+
+
+## 慢SQL
+
+###  设置慢查询
+
+```tex
+1.设置开启：SET GLOBAL slow_query_log = 1; #默认未开启，开启会影响性能，MySQL重启失效
+2.查看是否开启：SHOW VARIABLES LIKE '%slow_query_log%';
+3.设置阈值：SET [GLOBAL] long_query_time=3;
+4.查看阈值：SHOW [GLOBAL] VARIABLES LIKE 'long_query_time%'; #重连或新开一个会话才能看到修改值
+5.通过修改my.cnf永修生效：
+  slow_query_log = 1; #开启
+  slow_query_log_file=/var/lib/mysql/slow.log #慢日志地址，缺省文件名为host_name-slow.log
+  long_query_time=3; #运行时间超过该值的SQL会被记录，默认值>10
+  log_output=FILE
+```
+
+### 获取慢SQL信息
+
+```tex
+SHOW GLOBAL STATUS LIKE '%slow_queries%';
+```
+
+模拟语句：`select sleep(4)`
+
+查看日志：`cat /var/lib/mysql/slow.log`
+
+### mysqldumpslow
+
+```tex
+mysqldumpslow -s r -t 10 /var/lib/mysql/atguigu-slow.log     #得到返回记录集最多的10个SQL
+mysqldumpslow -s c -t 10 /var/lib/mysql/atguigu-slow.log     #得到访问次数最多的10个SQL
+mysqldumpslow -s t -t 10 -g "LEFT JOIN" /var/lib/mysql/atguigu-slow.log   #得到按照时间排序的前10条里面含有左连接的查询语句
+mysqldumpslow -s r -t 10 /var/lib/mysql/atguigu-slow.log | more      #结合| more使用，防止爆屏情况
+
+s：表示按何种方式排序
+c：访问次数
+l：锁定时间
+r：返回记录
+t：查询时间
+al：平均锁定时间
+ar：平均返回记录数
+at：平均查询时间
+t：返回前面多少条的数据
+g：后边搭配一个正则匹配模式，大小写不敏感
+```
+
