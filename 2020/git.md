@@ -96,6 +96,8 @@
 | git fetch <remote\>                                    | 下载远程仓库的所有变动                         |
 | git push <remote\> --all                               | 推送所有分支到远程仓库                         |
 | git show HEAD                                          | 显示HEAD的提交日志                             |
+| git checkout -                                         | 快速切换分支                                   |
+| git rm --cached filename                               | 取消对某个文件的追踪                           |
 
 
 
