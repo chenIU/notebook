@@ -14,6 +14,8 @@ https://www.cnblogs.com/jimoer/p/10995574.html
 BigDecimal totalAmount = userList.stream.map(User::getAmount).reduce(BigDecimal.ZERO,BigDecimal::add);
 ```
 
+
+
 **int doule long**
 
 ```java
@@ -22,6 +24,8 @@ double sum = userList.stream.mapToDouble(User::getHeight).sum();
 
 `mapToDouble`，`mapToInt`，`mapToLong`
 
+
+
 **空指针**
 
 ```java
@@ -29,6 +33,14 @@ double sum = userList.stream.filter(user -> StringUtils.isEmpty(user.getHeight))
 ```
 
 解决思路：用filter过滤
+
+
+
+**分组**
+
+```java
+Map<String,Long> map = emergencySignList.stream.collect(Collectors.groupBy(EmergencySign::getIdCard,Collectors.counting()));
+```
 
 
 
