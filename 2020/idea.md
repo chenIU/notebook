@@ -63,6 +63,7 @@
 | ctrl+shift+方向箭    | 交换上下两行的位置                            |
 | **ctrl+shift+F8**    | 查看所有的断点                                |
 | ctrl+p               | 查看某个方法的重载方法                        |
+| ctrl+alt+t           | surround with（try catch）                    |
 
 
 
