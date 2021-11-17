@@ -480,3 +480,10 @@ docker run -d --name=netdata \
   netdata/netdata
 ```
 
+
+
+## RabbitMQ
+
+```shell
+docker run -d --hostname my-rabbit --name RabbitMQ -p 15672:15672 rabbitmq:3-management
+```
