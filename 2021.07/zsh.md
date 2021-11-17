@@ -20,7 +20,21 @@ sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools
 + `zsh-autosuggestions`
 + `zsh-syntax-highlighting`
 
-配置：编辑`.zshrc`文件
+
+
+安装插件：
+
+```sh
+git clone --depth=1 git://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+```
+
+```sh
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+```
+
+
+
+配置文件：编辑`.zshrc`文件
 
 ```sh
 plugins=(git zsh-autosuggestions)
