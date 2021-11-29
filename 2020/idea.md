@@ -65,5 +65,7 @@
 | ctrl+p               | 查看某个方法的重载方法                        |
 | ctrl+alt+t           | surround with（try catch）                    |
 | **ctrl + j**         | 查看文件结构【customize】                     |
+| ctrl + shift ↑/↓     | 交换上下两行                                  |
+| alt + ←/→            | 切换类                                        |
 
 **键盘映射**：settings -> keymap -> main menu -> window ->editor tabs
