@@ -277,3 +277,12 @@ g：后边搭配一个正则匹配模式，大小写不敏感
 
 
 MAX函数不能作用于varchar数据类型
+
+
+
+MySQL事务隔离级别：
+
++ 读未提交（READ UNCOMMITTED）
++ 读已提交（READ COMMITTED）
++ 可重复读（REPEATABLE READ）
++ 序列化（SERIALIZABLE）
