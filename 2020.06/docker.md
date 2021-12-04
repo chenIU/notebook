@@ -369,6 +369,8 @@ docker run -d -p 9000:9000 --restart=always -v /var/run/docker.sock:/var/run/doc
 docker run --name filebrowser -d -v /root/filebrowser/sites/root:/srv -v /root/filebrowser/filebrowserconfig.json:/etc/config.json -v /root/filebrowser/database.db:/etc/database.db -p 18080:80 filebrowser/filebrowser
 ```
 
+默认用户名和密码：**admin/admin**
+
 
 
 ## rethinkdb
