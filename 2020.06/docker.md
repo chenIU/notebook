@@ -94,6 +94,15 @@ docker port container_id/container_name
 
 
 
+## 状态
+
+```shell
+# 查看某个容器的运行状态（内存/CPU/IO）
+docker stats xxx
+```
+
+
+
 ## 日志
 
 ```bash
