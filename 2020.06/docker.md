@@ -108,7 +108,10 @@ docker stats xxx
 
 ```bash
 docker logs container_id/container_name
-docker logs -f --tail = 3 xxx
+# 打印实时日志
+docker logs -f xxx
+# 查看某个容器最近两分钟的日志
+docker logs --since 2m xxx
 ```
 
 
@@ -285,6 +288,18 @@ docker run -d --name myadmin -e PMA_HOST=47.101.129.111 -e PMA_PORT=33061 -p 808
 ```bash
 docker run --name mysql -it -d -p 13306:3306 --restart=always -v /c/users/overmind/mnt/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 mysql:latest
 ```
+
+时区问题
+
+1. 启动时修正
+
+   `-v /etc/localtime:/etc/localtime -v /etc/timezone:/etc/timezone`
+
+2. 运行中启动
+
+   1. ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+   2. echo "Asia/Shanghai" > /etc/timezone
+   3. 重启容器
 
 
 
