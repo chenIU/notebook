@@ -725,3 +725,15 @@ java -jar -Dspring.config.location=./application.yml --spring.profiles.active=te
 + spring.config.location：指定配置文件的位置
 + spring.profiles.active：指定要使用的配置文件
 + server.port：指定端口（**=两边不能有空格**）
+
+
+
+**错误日志打印**
+
+```java
+// 一个参数的类型string
+log.error(String msg);
+// 两个参数的重载方法可以转入异常对象本身，打印堆栈信息
+log.error(String msg, Throwable t);
+```
+
