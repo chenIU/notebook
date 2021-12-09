@@ -448,14 +448,6 @@ docker run -d --name showdoc --user=root --privileged=true -p 5000:80 -v /showdo
 
 
 
-## xxl-job
-
-```sh
-docker run -itd -e PARAMS='--spring.datasource.url=jdbc:mysql://[ip]:3306/xxl_job --spring.datasource.username=[username] --spring.datasource.password=[password]' --privileged=true -p 8888:8080 -v /tmp/xxl-job-admin:/data/applogs --name xxl-job-admin xuxueli/xxl-job-admin:2.3.0
-```
-
-
-
 ## jenkins
 
 ```sh
@@ -499,3 +491,13 @@ docker run -d --name=netdata \
 ```shell
 docker run -d --hostname my-rabbit --name RabbitMQ -p 15672:15672 rabbitmq:3-management
 ```
+
+
+
+## xxl-job
+
+```shell
+docker run -e PARAMS="--spring.datasource.url=jdbc:<alias>://mysql:3306/xxl_job?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai --spring.datasource.username=<username> --spring.datasource.password=<password>" -p 8888:8080 -v /data/xxl-job:/data/applogs --name xxl-job-admin -d --link <container name or id>:<alias> xuxueli/xxl-job-admin:2.3.0
+```
+
+一个容器中使用另一个容器，一定要使用`--link`参数。
