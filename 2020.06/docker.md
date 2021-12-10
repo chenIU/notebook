@@ -516,3 +516,21 @@ docker run -e PARAMS="--spring.datasource.url=jdbc:<alias>://mysql:3306/xxl_job?
 ```
 
 一个容器中使用另一个容器，一定要使用`--link`参数。
+
+
+
+## FastDFS
+
+`tracker`
+
+```shell
+docker run -itd --name tracker --network=host -v /data/fdfs/tracker:/var/fdfs -v /etc/localtime:/etc/localtime delron/fastdfs tracker
+```
+
+`storage`
+
+```shell
+docker run -itd --name storage --network=host -e TRACKER_SERVER=121.196.221.210:22122 -v /data/fdfs/storage:/var/fdfs -v /etc/localtime:/etc/localtime delron/fastdfs storage
+```
+
+需要开放`8888`、`22122`、`23000`端口
