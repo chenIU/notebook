@@ -140,6 +140,30 @@ docker export container_id/container_name > xxx
 
 
 
+## 查询
+
+```shell
+docker search <container name>
+```
+
+
+
+## 更新
+
+```shell
+docker update --restart=always <container name or id>
+```
+
+
+
+## 网络
+
+```shell
+docker network ls
+```
+
+
+
 ## 导入
 
 ```bash
