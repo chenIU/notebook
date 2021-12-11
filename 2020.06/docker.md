@@ -534,3 +534,25 @@ docker run -itd --name storage --network=host -e TRACKER_SERVER=121.196.221.210:
 ```
 
 需要开放`8888`、`22122`、`23000`端口
+
+
+
+## ElasticSearch
+
+```shell
+docker run -itd --name elasticsearch -p 9200:9200 -p 9300:9300 \                         
+-e "discovery.type=single-node" \
+-v /data/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml \
+-v /data/elasticsearch/data:/usr/share/elasticsearch/data \
+-v /data/elasticsearch/plugins:/usr/share/elasticsearch/plugins \
+elasticsearch:7.6.2
+```
+
+
+
+## Kibana
+
+```shell
+docker run -itd --name kibana -v /data/kibana/kibana.yml:/usr/share/kibana/config/kibana.yml -p 5601:5601 kibana:7.6.2
+```
+
