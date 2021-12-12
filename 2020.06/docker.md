@@ -112,6 +112,8 @@ docker logs container_id/container_name
 docker logs -f xxx
 # 查看某个容器最近两分钟的日志
 docker logs --since 2m xxx
+# -t 输出时间
+docker logs -f --tail=3 -t xxx
 ```
 
 
