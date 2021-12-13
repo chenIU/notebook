@@ -66,7 +66,7 @@ docker stop container_id/container_name
 docker restart container_id/container_name
 ```
 
-根据docker官网的解释，docker的重启策略可以分为四种：
+`--restart`，根据docker官网的解释，docker的重启策略可以分为四种：
 
 | Policy                   | Result                                                       |
 | ------------------------ | ------------------------------------------------------------ |
@@ -215,13 +215,6 @@ docker volume purge //批量删除
 docker rmi image_id/image_name
 ```
 
-
-
-## 更改参数
-
-```bash
-docker container update --restart=always d72e7e910ab6
-```
 
 
 
