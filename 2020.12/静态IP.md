@@ -24,6 +24,8 @@
 
 ## 配置文件
 
+路径：`/etc/sysconfig/network-scripts`
+
 ```
 PROXY_METHOD=none 
 BROWSER_ONLY=no
