@@ -554,6 +554,12 @@ docker run -itd --name storage --network=host -e TRACKER_SERVER=121.196.221.210:
 
 需要开放`8888`、`22122`、`23000`端口
 
+命令方式添加文件：
+
+```shell
+/usr/bin/fdfs_upload_file /etc/fdfs/client.conf 1.txt
+```
+
 
 
 ## ElasticSearch
