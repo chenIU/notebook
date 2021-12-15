@@ -182,6 +182,14 @@ docker build -t [container_name] dir
 
 
 
+## 登录
+
+```
+docker login xxx
+```
+
+
+
 ## 数据卷
 
 查看所有数据卷：
