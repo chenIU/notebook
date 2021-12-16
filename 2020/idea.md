@@ -67,5 +67,6 @@
 | **ctrl + j**         | 查看文件结构【customize】                     |
 | ctrl + shift ↑/↓     | 交换上下两行                                  |
 | alt + ←/→            | 切换类                                        |
+| ctrl + alt + m       | 抽取方法                                      |
 
 **键盘映射**：settings -> keymap -> main menu -> window ->editor tabs
