@@ -589,3 +589,11 @@ elasticsearch:7.6.2
 docker run -itd --name kibana -v /data/kibana/kibana.yml:/usr/share/kibana/config/kibana.yml -p 5601:5601 kibana:7.6.2
 ```
 
+
+
+## todo-app
+
+```shell
+docker run -itd --name todo-app -p 9100:3000 -v /data/todos:/etc/todos fayliu/todo-app:latest
+```
+
