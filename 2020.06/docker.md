@@ -597,3 +597,19 @@ docker run -itd --name kibana -v /data/kibana/kibana.yml:/usr/share/kibana/confi
 docker run -itd --name todo-app -p 9100:3000 -v /data/todos:/etc/todos fayliu/todo-app:latest
 ```
 
+
+
+## zookeeper
+
+```shell
+docker run -itd --name zookeeper -p 2181:2181 zookeeper
+```
+
+
+
+## kafka
+
+```shell
+docker run -itd --name kafka -p 9092:9092 -e KAFKA_BROKER_ID=0 -e KAFKA_ZOOKEEPER_CONNECT=121.196.221.210:2181 -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://121.196.221.210:9092 -e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 -v /etc/localtime:/etc/localtime wurstmeister/kafka
+```
+
