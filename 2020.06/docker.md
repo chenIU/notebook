@@ -613,3 +613,28 @@ docker run -itd --name zookeeper -p 2181:2181 zookeeper
 docker run -itd --name kafka -p 9092:9092 -e KAFKA_BROKER_ID=0 -e KAFKA_ZOOKEEPER_CONNECT=121.196.221.210:2181 -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://121.196.221.210:9092 -e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 -v /etc/localtime:/etc/localtime wurstmeister/kafka
 ```
 
+
+
+## MongoDB
+
+```shell
+docker run -itd --name mongo -p 27017:27017 mongo --auth
+```
+
+```shell
+# 创建一个用户名为admin，密码为123456的用户
+docker exec -it mongo mongo admin 123456
+
+# 用创建的用户连接
+db.auth('admin','123456')
+
+# 创建数据库
+use <db_name>
+
+# 查看所有的数据库
+show dbs
+
+# 插入数据
+db.rookie.insert({"name":"rookie"})
+```
+
