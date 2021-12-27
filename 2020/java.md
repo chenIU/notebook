@@ -737,3 +737,16 @@ log.error(String msg);
 log.error(String msg, Throwable t);
 ```
 
+
+
+## Spring Boot logging
+
+```yaml
+logging:
+	file: # 日志文件，绝对路径或相对路径
+	path: # 保存日志文件目录
+	config: # 日志配置文件，Spring Boot 默认使用classpath路径下的日志配置文件，如：logback.xml
+	level:
+		org.springframework.web: DEBUG # 日志级别
+```
+
