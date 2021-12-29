@@ -98,6 +98,7 @@
 | git show HEAD                                          | 显示HEAD的提交日志                             |
 | git checkout -                                         | 快速切换分支                                   |
 | git rm --cached filename                               | 取消对某个文件的追踪                           |
+| git remote update origin --prune                       | 整理分支（解决远程分支变动，本地无法感知问题） |
 
 
 
