@@ -750,3 +750,11 @@ logging:
 		org.springframework.web: DEBUG # 日志级别
 ```
 
+
+
+## Spring Boot 配置文件优先级
+
+1. 项目根目录的config目录中配置文件
+2. 项目根目录下配置文件
+3. classpath路径下config目录中的配置文件
+4. classpath路径下配置文件
