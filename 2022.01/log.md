@@ -20,3 +20,9 @@ Spring Boot 默认采用`logback`
 `jul` java.util.logging
 
 `jcl` jakarta.common.logging
+
+
+
+**日志级别**
+
+`debug` < `info` < `warn` < `error` < `fatal`
