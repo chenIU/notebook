@@ -758,3 +758,14 @@ logging:
 2. 项目根目录下配置文件
 3. classpath路径下config目录中的配置文件
 4. classpath路径下配置文件
+
+
+
+## @Value
+
+```java
+@Value("${outsystem.url:}")
+private String url;
+```
+
+使用`@Value`注解获取配置项时，最好使用`:`指定缺省值，这样在不配置的时候也不会报错。
