@@ -19,6 +19,10 @@ jdk1.5之后不需要配Classpath环境变量
 
 
 
+Set contains()的时间复杂度是O(1)，List contains()的时间复杂度是O(n)
+
+
+
 # BigDecimal
 
 ## 1.创建
