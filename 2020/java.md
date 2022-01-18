@@ -773,3 +773,12 @@ private String url;
 ```
 
 使用`@Value`注解获取配置项时，最好使用`:`指定缺省值，这样在不配置的时候也不会报错。
+
+
+
+## 文件路径
+
+```java
+@PropertySource(value = {"classpath:config/mysql.properties"})
+```
+
