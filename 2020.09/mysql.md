@@ -286,3 +286,12 @@ MySQL事务隔离级别：
 + 读已提交（READ COMMITTED）
 + 可重复读（REPEATABLE READ）
 + 序列化（SERIALIZABLE）
+
+
+
+## case when
+
+```sql
+CASE [col_name] WHEN [value] THEN [result] ... ELSE [default_value] END
+```
+
