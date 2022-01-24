@@ -782,3 +782,10 @@ private String url;
 @PropertySource(value = {"classpath:config/mysql.properties"})
 ```
 
+
+
+## final
+
+1. 修饰类，则这个类不能被继承
+2. 修饰方法，则这个方法不能被重写
+3. 修饰变量，如果是普通数据类型，则初始化之后不能被修改；如果是应用类型变量，则在对其初始化之后便不能再让其指向另一个对象
