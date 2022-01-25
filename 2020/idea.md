@@ -68,5 +68,7 @@
 | ctrl + shift ↑/↓     | 交换上下两行                                  |
 | alt + ←/→            | 切换类                                        |
 | ctrl + alt + m       | 抽取方法                                      |
+| Ctrl + Alt + B       | 接口方法跳转到实现类方法                      |
+| Ctrl + U             | 实现类方法跳转到接口方法                      |
 
 **键盘映射**：settings -> keymap -> main menu -> window ->editor tabs
