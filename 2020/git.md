@@ -638,3 +638,12 @@ git checkout . ：将当前工作区中所有内容还原（只能用于还原�
 
 `git commit --amend`：重写git提交历史
 
+
+
+**刷新远程分支**
+
+```shell
+git remote update origin --prune
+
+git remote update origin -p
+```
