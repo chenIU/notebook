@@ -668,3 +668,16 @@ SELECT CONCAT("-", "江西省", "赣州市", "于都县");
 </insert>
 ```
 
+
+
+**3.应用**
+
+```sql
+<insert id="insert">
+	<selectKey keyProperty="refId" order="before" resultType="java.lang.Integer"> <!-- 绑定对应属性，不一定是主键 -->
+		select ifnull(max(ref_id),0) from t_user
+	</<selectKey>
+	insert into t_user(id,ref_id) values (#{id}, #{refId})
+</insert>
+```
+
