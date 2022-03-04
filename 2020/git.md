@@ -451,6 +451,7 @@ git cherry-pick commit_id：将刚才那一部分代码复制到dev分支上来
 
 ```bash
 git remote add origin git@github.com:chenIU/rabbitmq.git
+# 推送之前先拉取,如果遇到【fatal：refusing to merge unrelated histories】,执行：git pull origin [branch_name] --allow-unrelated-histories
 git push -u origin master
 ```
 
