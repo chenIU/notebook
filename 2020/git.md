@@ -123,6 +123,7 @@
 | git push origin <origin_name>                            | 将本地分支推送到远程                         |
 | git branch -d <branch_name>                              | 删除分支                                     |
 | git branch -D <branch_name>                              | 强制删除分支                                 |
+| git branch `-m/M` <branch_name>                          | 重命名分支                                   |
 | git push origin --delete <branch_name>                   | 删除远程分支                                 |
 | git push origin :<branch_name>                           | 删除远程分支                                 |
 | git branch -dr <remote_branch>                           | 删除远程分支                                 |
