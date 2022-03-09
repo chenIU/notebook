@@ -387,6 +387,15 @@ double s2 = list.stream().map(Bean:getNum2).reduce(Double::sum).get();
 
 
 
+**对集合分组**
+
+```java
+Map<String, List<Order>> treeMap = orders.stream()
+                .collect(Collectors.groupingBy(Order::getName,TreeMap::new,Collectors.toList()));
+```
+
+
+
 ### multipart文件上传文件过大
 
 #### 1、yaml
