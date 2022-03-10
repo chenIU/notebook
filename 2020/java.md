@@ -804,3 +804,14 @@ private String url;
 ## @Primary
 
 一个类有多个实现类时，使用此注解标注优先加载某个类
+
+
+
+## 函数式接口
+
+| 接口名称        | 主要方法          |
+| --------------- | ----------------- |
+| Consumer\<T\>   | void accept(T t)  |
+| Supplier\<T\>   | T get()           |
+| Function\<T,R\> | R apply(T t)      |
+| Predicate\<T\>  | boolean test(T t) |
