@@ -815,3 +815,7 @@ private String url;
 | Supplier\<T\>   | T get()           |
 | Function\<T,R\> | R apply(T t)      |
 | Predicate\<T\>  | boolean test(T t) |
+
+
+
+`this`关键字会导致spring注解失效，`@Transactional`、`@Async`失效都包含这种情况。
