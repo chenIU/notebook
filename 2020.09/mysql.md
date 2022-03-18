@@ -295,3 +295,10 @@ MySQL事务隔离级别：
 CASE [col_name] WHEN [value] THEN [result] ... ELSE [default_value] END
 ```
 
+
+
+## 和锁有关的系统表
+
++ information_schema.innodb_locks
++ information_schema.innodb_lock_waits
++ information_schema.innodb_trx
