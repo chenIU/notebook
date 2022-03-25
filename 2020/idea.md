@@ -70,5 +70,7 @@
 | ctrl + alt + m       | 抽取方法                                      |
 | Ctrl + Alt + B       | 接口方法跳转到实现类方法                      |
 | Ctrl + U             | 实现类方法跳转到接口方法                      |
+| Shift + Enter        | 当前行的下一行插入空行                        |
+| Ctrl + Alt + Enter   | 当前行的上一行插入空行                        |
 
 **键盘映射**：settings -> keymap -> main menu -> window ->editor tabs
