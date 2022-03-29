@@ -42,7 +42,7 @@ DEVICE=ens33
 
 BOOTPROTO=static #设置为静态IP
 ONBOOT=yes #开机自动启动
-DNS1=192.168.1.1
+DNS1=192.168.1.2
 TYPE=Ethernet #网络类型
 IPADDR=192.168.1.102 #IP地址
 NETMASK=255.255.255.0 #子掩码
