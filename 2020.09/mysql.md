@@ -37,7 +37,7 @@ extra：关于mysql如何解析查询的额外信息。最坏的情况是using t
 `5.7`
 
 ```bash
-grant all privilege on your_db.table_name(*) to 'user'@'localhost(%)' identified by 'your_password';
+grant all privileges on your_db.table_name(*) to 'user'@'localhost(%)' identified by 'your_password';
 flush privileges;
 ```
 
