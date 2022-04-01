@@ -36,10 +36,25 @@ extra：关于mysql如何解析查询的额外信息。最坏的情况是using t
 
 `5.7`
 
++ 方式一：
+
 ```bash
 grant all privileges on your_db.table_name(*) to 'user'@'localhost(%)' identified by 'your_password';
 flush privileges;
 ```
+
+
+
++ 方式二：
+
+```sql
+mysql -u root -p
+use mysql;
+update user set host='%' where user = 'root';
+flush privileges;
+```
+
+
 
 `8.0`
 
