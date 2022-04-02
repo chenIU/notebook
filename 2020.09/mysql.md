@@ -317,3 +317,13 @@ CASE [col_name] WHEN [value] THEN [result] ... ELSE [default_value] END
 + information_schema.innodb_locks
 + information_schema.innodb_lock_waits
 + information_schema.innodb_trx
+
+
+
+**修改root密码**
+
++ update mysql.user set authentication_string=password('123456') where user='root' and host='%';
++ alter user 'root'@'%' identified by '123456';
++ set password for 'root'@'%'=password('123456');
+
+上述三种方式执行完之后，都需要执行`flush privileges`刷新权限。
