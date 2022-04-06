@@ -270,3 +270,12 @@ Map<Double,Map<Double,List<Room>>> multiMap = roomList.stream().collect(Collecto
 ```java
 Stream.of(roomList).parallel();
 ```
+
+
+
+> 分组时，指定生成map的类型
+
+```java
+Map<Integer, List<User> mapList = list.stream.collect(Collectors.groupingBy(User::getGender, LinkedHashMap::new, Collectors.toList()));
+```
+
