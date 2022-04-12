@@ -480,6 +480,12 @@ docker run --name tomcat -d -p 8090:8080 -v ${pwd}/mnt/tomcat/webapps:/usr/local
 docker run -d --name minio -p 9000:9000 minio/minio server /data
 ```
 
+**新版**
+
+```sh
+docker run -d -p 9000:9000 -p 9001:9001 --name minio -v /data/minio:/data -e "MINIO_ROOT_USER=admin" -e "MINIO_ROOT_PASSWORD=admin123456" --restart=always minio/minio server /data --console-address ":9001"
+```
+
 
 
 ## showdoc
