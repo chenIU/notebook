@@ -54,7 +54,7 @@
 | alt+delete           | 安全删除                                      |
 | ctrl+alt+B           | 查看接口的实现类                              |
 | ctrl+shift+U         | 大小写转换                                    |
-| alt+鼠标左键         | 列模式                                        |
+| **alt+鼠标左键**     | 列模式                                        |
 | ctrl+o               | 选择要重写的类                                |
 | ctrl+j               | 选择普通的live template                       |
 | ctrl+alt+j           | 选择包裹的live template                       |
