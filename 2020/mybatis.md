@@ -457,15 +457,27 @@ public class Item {
         <id column="user_id" property="id"/>
     </association>
     <collection property="orderDetailList" javaType="java.util.List" ofType="com.ruida.model.OrderDetail" autoMapping="true">
-        <id column="id" property="order_id"/>
+		<--! 当主表和从表的主键id名称相同时，需要使用别名进行区分 -->
+        <id column="d_id" jdbcType="INTEGER" property="id"/>
+		<result column "order_id" jdbcType="INTEGER" property="orderId" />
+		<result column "item_id" jdbcType="INTEGER" property="itemId" />
+		<result column "total_price" jdbcType="DECIMAL" property="totalPrice" />
+		<result column "status" jdbcType="INTEGER" property="status" />
     </collection>
 </resultMap>
 
 <select id="queryOrderUserDetailInfo" resultMap="orderUserDetailMap">
-    select * from t_order o
+    select
+	o.*,
+    d.id as d_id,
+	d.order_id,
+	d.item_id,
+	d.total_price,
+	d.status
+    from t_order o
     left join t_user u on o.user_id = u.id
-    left join t_order_detail od on o.id = od.order_id
-    where o.order_number = #{number}
+    left join t_order_detail d on o.id = d.order_id
+    where o.order_number link concat('%', #{number} ,'%')
 </select>
 ```
 
