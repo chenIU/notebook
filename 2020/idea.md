@@ -72,5 +72,7 @@
 | Ctrl + U             | 实现类方法跳转到接口方法                      |
 | Shift + Enter        | 当前行的下一行插入空行                        |
 | Ctrl + Alt + Enter   | 当前行的上一行插入空行                        |
+| Ctrl + R             | 替换                                          |
+| Ctrl + Shift + R     | 全局替换                                      |
 
 **键盘映射**：settings -> keymap -> main menu -> window ->editor tabs
