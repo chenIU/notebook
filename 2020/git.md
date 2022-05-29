@@ -653,3 +653,12 @@ git remote update origin --prune
 
 git remote update origin -p
 ```
+
+
+
+# git reset
+
++ `-soft`：修改的文件会回滚，新增的文件会放在暂存区中
++ `-mixed`：修改的文件会回滚，新增单位文件会放在工作区中
++ `-hard`：修改和新增的文件都会被回滚
++ `-keep`：回滚`commit`的变更，但是保留本地的更改
