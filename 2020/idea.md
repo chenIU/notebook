@@ -65,7 +65,7 @@
 | ctrl+p               | 查看某个方法的重载方法                        |
 | ctrl+alt+t           | surround with（try catch）                    |
 | **ctrl + j**         | 查看文件结构【customize】                     |
-| ctrl + shift ↑/↓     | 交换上下两行                                  |
+| ctrl + shift + ↑/↓   | 交换上下两行                                  |
 | alt + ←/→            | 切换类                                        |
 | ctrl + alt + m       | 抽取方法                                      |
 | Ctrl + Alt + B       | 接口方法跳转到实现类方法                      |
@@ -74,5 +74,8 @@
 | Ctrl + Alt + Enter   | 当前行的上一行插入空行                        |
 | Ctrl + R             | 替换                                          |
 | Ctrl + Shift + R     | 全局替换                                      |
+| Ctrl + W             | 选中内容                                      |
+| Ctrl + Alt + C       | 快速提取常量                                  |
+| Ctrl + Alt + V       | 快速提取变量                                  |
 
 **键盘映射**：settings -> keymap -> main menu -> window ->editor tabs
