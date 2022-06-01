@@ -77,5 +77,7 @@
 | Ctrl + W             | 选中内容                                      |
 | Ctrl + Alt + C       | 快速提取常量                                  |
 | Ctrl + Alt + V       | 快速提取变量                                  |
+| Ctrl + I             | 实现方法                                      |
+| Ctrl + O             | 重写方法                                      |
 
 **键盘映射**：settings -> keymap -> main menu -> window ->editor tabs
