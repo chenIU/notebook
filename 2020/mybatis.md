@@ -631,7 +631,7 @@ SELECT CONCAT("-", "江西省", "赣州市", "于都县");
 ```sql
 <insert id = "insert" useGeneratedKeys = "true" keyProperty = "id">
 	SQL语句
-<insert>
+</insert>
 ```
 
 `useGeneratedKeys` //是否返回自增主键
@@ -693,3 +693,12 @@ SELECT CONCAT("-", "江西省", "赣州市", "于都县");
 </insert>
 ```
 
+
+
+# IdType
+
++ AUTO(0) // 自增
++ NONE(1) // 未设置主键
++ INPUT(2) // 手动输入
++ ASSIGN_ID(3) // 默认全局唯一ID
++ ASSIGN_UUID(4) // 全局唯一uuid
