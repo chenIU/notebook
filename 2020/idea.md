@@ -79,5 +79,6 @@
 | Ctrl + Alt + V       | 快速提取变量                                  |
 | Ctrl + I             | 实现方法                                      |
 | Ctrl + O             | 重写方法                                      |
+| Ctrl + Shift + Del   | 删除包裹的结构                                |
 
 **键盘映射**：settings -> keymap -> main menu -> window ->editor tabs
