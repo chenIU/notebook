@@ -63,9 +63,9 @@
 | git push --set-upstream origin master                  | 第一次上传本地仓库代码                         |
 | git config credential.helper store                     | 保存git账户和密码                              |
 | git config --global alias.last 'log -1 HEAD'           | 查看最后一次提交                               |
-| git reset --mixed HEAD^                                | commit和index回退到上个版本，保留源码变更      |
-| git reset --soft HEAD^                                 | commit回退，保留源码和index变更                |
-| git reset --hard HEAD^                                 | commit、index、源码都会回退到上个版本          |
+| git reset --soft HEAD^                                 | HEAD回退，保留工作区和暂存区变更               |
+| git reset --mixed HEAD^                                | HEAD回退，重置暂存区，保留工作区变更           |
+| git reset --hard HEAD^                                 | HEAD回退、重置暂存区和工作区                   |
 | git revert <commit_id>                                 | 可以将本地和远程代码同时回退，之后执行git push |
 | git config --global user.name                          | 查看user.name属性值                            |
 | git config --global user.name "chenjy"                 | 为user.name重新赋值                            |
