@@ -4,7 +4,7 @@
 | --------------- | ---------------- | ---------------- | --------------- |
 | 是否实现slf门面 | 否               | 否               | 是              |
 | 适配器          | slf4j-log4j12    | log4j-slf4j-impl | logback-classic |
-| 桥接            | log4j-over-slf4j | log4j-to-slf4j   | 已实现slf4j     |
+| 桥接器          | log4j-over-slf4j | log4j-to-slf4j   | 已实现slf4j     |
 | 性能            | 低               | 高               | 中              |
 
 > 适配器就是由具体的日志实现方式来实现 `slf`门面模式
@@ -33,18 +33,30 @@ Spring Boot 默认采用`logback`
 
 
 
-**log4j2核心依赖**
+**log4j依赖**
+
+```xml
+<dependency>
+    <groupId>log4j</groupId>
+    <artifactId>log4j</artifactId>
+    <version>${log4j.version}</version>
+</dependency>
+```
+
+
+
+**log4j2依赖**
 
 ```xml
 <dependency>
     <groupId>org.apache.logging.log4j</groupId>
     <artifactId>log4j-api</artifactId>
-    <version>${log4j.version}</version>
+    <version>${log4j2.version}</version>
 </dependency>
 <dependency>
     <groupId>org.apache.logging.log4j</groupId>
     <artifactId>log4j-core</artifactId>
-    <version>${log4j.version}</version>
+    <version>${log4j2.version}</version>
 </dependency>
 ```
 
@@ -52,7 +64,7 @@ Spring Boot 默认采用`logback`
 
 
 
-**调用**
+**获取logger的方式**
 
 1. log4j
 
@@ -60,11 +72,15 @@ Spring Boot 默认采用`logback`
    private final Logger logger = Logger.getLogger();
    ```
 
+   
+
 2. log4j2
 
    ```java
    private static Logger logger = LogManager.getLogger();
    ```
+
+   
 
 3. logback
 
