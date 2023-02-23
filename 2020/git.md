@@ -61,6 +61,7 @@
 | git rm --cached file_name                              | 让git不再追踪某个文件/回退git add的文件        |
 | git remote add origin repo_addr                        | 让本地仓库和远端仓库关联                       |
 | git push --set-upstream origin master                  | 第一次上传本地仓库代码                         |
+| git branch --set-upstream-to=origin/dev dev            | 将本地`dev`分支和远程`dev`分支关联             |
 | git config credential.helper store                     | 保存git账户和密码                              |
 | git config --global alias.last 'log -1 HEAD'           | 查看最后一次提交                               |
 | git reset --soft HEAD^                                 | HEAD回退，保留工作区和暂存区变更               |
