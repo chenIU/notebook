@@ -4,5 +4,5 @@
 | 滨江测试环境   | 172.16.9.64                  | root         | Pinming1024      |        |
 | 产品化测试环境 | 172.16.8.41                  | smipre       | ^9nIb@niijJdneBW |        |
 | 数据库         | 172.16.9.65                  | root         | Pinming1024      |        |
-| 滨江生产环境   | https://115.227.36.68:10443/ | pm_zhuhaibin | PinMing9158@!~3  | 堡垒机 |
+| 滨江生产环境   | https://115.227.36.68:10443/ | pm_zhuhaibin | PinMing9158@!~5  | 堡垒机 |
 | 滨江生产环境   |                              | root         | HHTZ@bjcsdn#vPC  |        |
