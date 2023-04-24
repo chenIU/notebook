@@ -644,3 +644,11 @@ show dbs
 db.rookie.insert({"name":"rookie"})
 ```
 
+
+
+## memcached
+
+```shell
+docker run -it -p 11211:11211 --name memcached -d memcached memcached -m 64
+```
+
