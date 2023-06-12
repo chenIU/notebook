@@ -71,6 +71,8 @@
 | Ctrl + i                 | 实现方法                                      |
 | Ctrl + o                 | 重写方法                                      |
 | Ctrl + Shift + Del       | 删除包裹的结构                                |
+| Ctrl + z                 | 撤销                                          |
+| Ctrl + Shift + z         | 重做                                          |
 
 **键盘映射**：settings -> keymap -> main menu -> window ->editor tabs
 
